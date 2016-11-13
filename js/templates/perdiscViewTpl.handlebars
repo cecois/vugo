@@ -1,0 +1,36 @@
+<div class="seriesContent span10">
+			<div class="marketing">
+				<div class="appname" style="font-size:1.7em;">
+					LL GeoData: Per-Disc (legacy) Access for Series: <span class="marketing-byline">{{activeseries}}</span>
+				</div>
+				<div class="row-fluid">
+					{{#if perdiscerror}}
+					<div class="">
+						<h2>
+							Big Error!
+						</h2>
+						<div class=" perdiscbody" style="text-align:left;">
+							<div class="alert alert-warning">
+								{{perdiscerror}}
+							</div><span class="icon-x-altx-alt pull-right" id="perdiscreset" style="cursor:pointer;"></span>
+						</div><!-- .perdiscbody -->
+					</div>{{else}}
+					<div class="anno span9 offset1">
+						For those users wishing to still reference/download our data by the disc on which they arrive, this interface allows you to (at left) search for a given series (e.g. "cib" or "cdrg"), then at right will appear a menu of all the optical media that feed that series. Individual discs can then be downloaded (or just visualized on the map) from that resulting menu.
+					</div><!-- ./  -->
+					<div class="span6" style="margin-left:0;">
+
+						<h4 class="span6">
+							<div class="pull-left ordercircle">1</div>Choose from All Available Series
+						</h4>
+						<div class="perdisclist" style="text-align:left;clear:left;">
+							<form class="" action="" style="margin-left:10px;">
+								<input placeholder="filter list by series name or features" type="text" id="input-perdiscfilter" class="input-small span6">
+							</form>
+							<div class="perdiscserieslist span8"></div>
+						</div>
+					</div>
+				</div>
+				{{/if}}
+			</div><!-- marketing -->
+		</div><!-- perdisccontainer -->

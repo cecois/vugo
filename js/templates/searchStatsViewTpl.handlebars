@@ -1,0 +1,10 @@
+<div class="minutiae" style="width:100%;position:relative;text-align:center;margin-bottom:8px;">(the 'z' key will toggle this pane)</div> <!-- ./ anno -->
+
+<div class="hitcount">{{#countcount recordOffset recordsPerPage page}}{{/countcount}} of {{hitcount}} total records
+
+</div>
+ <div class="pagination pagination-mini pagination-centered"><ul>
+{{#pageMaker hitcount recordsPerPage}}
+    {{this}}
+{{/pageMaker }}
+</ul></div> 

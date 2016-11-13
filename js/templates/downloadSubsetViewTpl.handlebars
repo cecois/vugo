@@ -1,0 +1,27 @@
+<div class="dlsession offset1 span9">
+<div class="titlepane span4 pull-left">{{title}}</div>
+
+<div class="statspane span4 pull-right">
+<div><span class="muted">total payload size:</span> {{{sizeBeautified loadsize}}}</div>
+{{#if estimatedloadsize}}
+<div><span class="muted">estimated <span class="text-info"><strong>new</strong></span> payload size:</span> {{{sizeBeautified estimatedloadsize}}}</div>
+{{/if}}
+<div><span class="muted">total files:</span> {{#if dlcnt}}{{dlcnt}}{{/if}}</div>
+{{#if estimateddlcnt}}
+<div><span class="muted">estimated <span class="text-info"><strong>new</strong></span> total download files:</span> {{{estimateddlcnt}}}</div>
+{{/if}}
+</div>
+
+<div id="subsetToolbar" class="span8 pull-right">
+
+<span id="btnSubsetAccept" class="pull-right icon-checkmark span1" title="accept changes to and return to list">
+</span>
+
+<span id="btnSubsetCancel" class="pull-right icon-x-altx-alt" title="nevermind (return to download list)"></span>
+
+<span id="btnDrawDrag" class="pull-right icon-target" title="enables the drag cursor you use to drag a box on the map to subset/superset your existing choice"></span>
+</div>
+<div class="divider span9">
+<hr>
+</div>
+</div>

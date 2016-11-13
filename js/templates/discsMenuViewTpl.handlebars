@@ -1,0 +1,8 @@
+{{#each []}}
+<li>
+
+	<span {{#activedisc resid}}class="activedisc"{{/activedisc}}>{{resid}}.zip &nbsp;&nbsp;&nbsp;</span><span class="disclist-btn-footprint"><a href='#perdisc/{{series}}/{{resid}}'><i class="icon-girl-footprint"></i></a></span> <span class="disclist-btn-download"><a target="_blank" href='../api/v1/zip/{{series}}/{{resid}}'><i class="icon-awesome-download"/></a></span>
+	<span data-toggle="popover" class="disclist-btn-md5" data-id="{{md5}}"><i class="icon-hash"/></span>
+
+</li>
+{{/each}}

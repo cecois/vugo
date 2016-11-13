@@ -1,0 +1,23 @@
+{
+    "orderLayers": [{
+
+        "name": "inhand",
+        "active": true,
+        "nom": "Tiles we Have In-House",
+        "swatchcolor": "#825c26"
+    }, {
+
+        "name": "ordered",
+        "active": true,
+        "nom": "Recently-Ordered Coverage (In Process)",
+        "swatchcolor": "#DFC27D"
+    }, {
+
+        "name": "available",
+        "active": true,
+        "nom": "Requestable Data",
+        "swatchcolor": "#018571"
+    }
+
+    ]
+}

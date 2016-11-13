@@ -1,0 +1,101 @@
+   <div class="span1"></div>
+   <div class="title span11 pull-left">{{ title }}</div>
+
+   <div class="span2"></div>
+
+<div class="button-wrapper pull-left span4">
+              <div class="btn-group btn-group-vertical pull-right">
+         <a class="btn btnEnvelope"><i class="icon-girl-footprint {{#equal envelonoff true}}active{{/equal}}"></i></a>
+         {{#equal format "raster"}}
+         <a class="btn btnCoverage" rel="popover"><i class="icon-grid {{#equal covonoff true}}active{{/equal}}" style="margin-left:-3px;"></i></a>
+       {{/equal}}
+       <a class="btn btnDownload" ><i class="icon-awesome-download"></i></a>
+
+{{#btzoomcheck envelonoff covonoff prevonoff}}
+{{/btzoomcheck}}
+
+
+<!-- {{#equal envelonoff true}}<a class="btn btnZoomto" ><i class="icon-zoomin"></i></a>{{/equal}}
+{{#equal covonoff true}}<a class="btn btnZoomto" ><i class="icon-zoomin"></i></a>{{/equal}}
+{{#equal prevonoff true}}<a class="btn btnZoomto" ><i class="icon-zoomin"></i></a>{{/equal}} -->
+
+     </div>
+     <div class="thumbnail pull-right span3 btnPreview {{#equal prevonoff true}}glowing{{/equal}}">
+         <div class="badge span1 pull-right">{{format}}</div>
+         <img src="{{thumb}}" width="270px" height="145px" alt="series thumbnail">
+         <p><span class="text-info"><strong>click for preview</strong></span></p>
+       </div>
+
+{{#equal envelonoff true}}
+<input type="text" class="span2 sliderenvelope offset3" data-slider-orientation="horizontal" data-slider-selection="after" data-slider-tooltip="show"> <span class="text-warning" style="position:relative;top:5px;">envelope opacity</span>
+{{/equal}}
+{{#equal covonoff true}}
+<input type="text" class="span2 slidercoverage offset3" data-slider-orientation="horizontal" data-slider-selection="after" data-slider-tooltip="show"><span class="text-warning" style="position:relative;top:5px;">coverage opacity</span>
+{{/equal}}
+
+{{#equal format "raster"}}
+{{#equal prevonoff true}}
+<input type="text" class="span2 sliderpreview offset3" data-slider-orientation="horizontal" data-slider-selection="after" data-slider-tooltip="show"><span class="text-warning" style="position:relative;top:5px;">preview opacity</span>
+{{/equal}}
+{{/equal}}
+
+{{#equal prevonoff true}}
+{{#equal format "vector"}}
+<span class="span4 text-warning" style="position:relative;top:5px;">NOTE: vector previews are limited to 120 features</span>
+{{/equal}}
+{{/equal}}
+
+   <div class="subjectlist pull-left span3">
+     <ul>
+       {{#each subject}}
+       <li>
+         <span class="label">{{this}}</span>
+       </li>
+       {{/each}}
+     </ul>
+   </div>
+   </div>
+
+<div class="span2"></div>
+      <div class="details-rest pull-right span6">
+     <dl class="dl-horizontal">
+       <dt>Temporal Coverage: Start</dt>
+       <dd>{{{time-year-month date_start}}}</dd>
+
+       <dt>Temporal Coverage: End</dt>
+       <dd>{{{time-year-month date_end}}}</dd>
+
+       <dt>Last Updated</dt>
+       <dd>{{{time-year-month updated}}}</dd>
+
+       <dt>Classified</dt>
+       <dd>{{classification}}</dd>
+
+       <dt>Format</dt>
+       <dd>{{format}}</dd>
+
+{{#equal format "raster"}}
+       <dt>Resolution</dt>
+       <dd>{{resolution}}</dd>
+   {{/equal}}
+       {{#if source}}
+       <dt class="sourcelist">Publishers/Providers</dt>
+       {{#each source}}
+       <dd>{{this}}</dd>
+       {{/each}}
+       {{/if}}
+     </dl>
+   </div>
+
+     <!-- here we pass all onoff values and the notes bc we have a Handlebars Helper that will do a booleaon OR check of the onoffs and if *any* are true the single notes value will return for display. If we don't do it this way we end up with multiple notes fields rendering if multiple buttons are pressed -->
+{{#notesResolve envelonoff covonoff prevonoff notes }}
+{{/notesResolve}}
+
+     <div class="container details-container row span12">
+      <div class="span1"></div>
+<div class="description well muted pull-right span9">
+     {{ sanitized description }}
+     <div class="pull-right muted minutiae">source({{description_source}})</div>
+   </div>
+
+   </div>

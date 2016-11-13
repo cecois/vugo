@@ -1,0 +1,26 @@
+{{!-- {{this.count}} (total) --}}
+<h4>{{this.title}}</h4>
+<ul class="toolbar-hitz">
+	<li class="">zoom to extent of all hits on this page</li>
+	{{!-- <li class="">add all on this page to download queue</li> --}}
+</ul>
+<ul class="list-unstyled ul-hitz">{{#each rows}}
+	<li class="hit-wrapper pull-left"  data-id="{{_id}}" data-bbox="{{boundingbox}}" data-target="" >
+		<div class="row"><div class="hit-marked col-sm-1"></div>
+				<div class="hit-title col-sm-11">{{this.title}}</div></div>
+
+		<div class="row"><div class="col-sm-4">{{series}}:{{handle}}</div> <!-- ./  -->
+				<div class="col-sm-4">{{classification}}</div> <!-- ./  -->
+				<div class="col-sm-4"></div> <!-- ./  --></div>
+
+		<div class="row"><div class="col-sm-4">{{format}}</div> <!-- ./  -->
+				<div class="col-sm-4">{{description}}</div> <!-- ./  -->
+				<div class="col-sm-4">{{description_source}}</div> <!-- ./  --></div>
+
+		<div class="row"><div class="col-sm-4">{{resolution}}</div> <!-- ./  -->
+				<div class="col-sm-4">{{description}}</div> <!-- ./  -->
+				<div class="col-sm-4">{{description_source}}</div> <!-- ./  --></div>
+
+	</li>
+	{{/each}}
+</ul>

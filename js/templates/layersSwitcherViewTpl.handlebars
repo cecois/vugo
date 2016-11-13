@@ -1,0 +1,17 @@
+  <ul class="list-unstyled col-sm-12">
+    {{#each layers}}
+
+    <li data-id="{{this.id}}" data-type="{{this.type}}" class="switcher-item-wrapper">
+
+      <span class="switcher-label pull-left">{{this.label}}:</span>
+        <span class="switcher-title pull-left " style="margin-left:5px;">{{nominatum_chop this.name 0}}</span>
+        {{!-- <div><span class="glyphicon glyphicon-pushpin pull-left"></span></div> --}}
+        <span class="switcher-toolbar-wrapper pull-left">
+<div class="switcher-button switcher-button-zoom glyphicon glyphicon-fullscreen" data-id="{{this.id}}" data-type="{{this.type}}"></div>
+<div class="switcher-button switcher-button-onoff glyphicon glyphicon-ban-circle {{switcher this.id}}" data-id="{{this.id}}" data-type="{{this.type}}"></div>
+        </span>
+      {{!-- </div> --}}
+    </li>
+
+    {{/each}}
+  </ul>

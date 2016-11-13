@@ -1,0 +1,74 @@
+<div class="span1"></div><div class="dlsession span9">
+<div class="titlepane span4">{{title}}</div>
+
+{{#equal queued true}}
+<div class="statspane span4">
+    <div>
+        <span class="muted">total payload size: ~</span>
+        {{{sizeBeautified loadsize}}}
+    </div>
+
+    <div>
+        <span class="muted">total download files:</span>
+        {{outfilescount}}
+    </div>
+    <div class="chart-wrapper pull-right">
+        <span class="muted pull-left">% completed:</span>
+        <div class="chart pull-right row"></div>
+    </div>
+</div>
+{{/equal}}
+
+
+<ul class="row span9 well dlFileList">    
+
+<div class="btnDLGroup btn-group btn-group-vertical pull-right">
+<a class="btn btnEnvelope pull-right" aria-hidden="true" data-original-title="download extent"><i class="icon-girl-footprint {{#equal envelonoff true}}active{{/equal}}"></i></a>
+{{#compare queued true }}
+
+    {{#compare format "raster" }}
+
+    <a class="btn btnDLSubset pull-right" aria-hidden="true" data-original-title="select a subset of this resource"><i class="icon-rectangle"></i></a>
+    {{/compare}}
+
+    <a class="btn btnDLRemove pull-right " data-original-title="permanently remove this download from the queue"><i class="icon-trashcan"></i></a>
+{{/compare}}
+
+</div>
+
+
+    {{#compare queued false}}
+    <div class="span8 rightsWarning alert-completed">this download has been removed from the queue</div>
+    {{/compare}}
+
+    {{#compare queued true}}
+    <div class="span7 rightsWarning alert alert-error">{{{rights}}}</div>
+    {{#if outfiles}}
+    <div class="text-left text-muted" style="clear:both;">(Click each of the following links to download that chunk of the entire download/payload)</div>
+<!--     {{#each_with_index outfiles}}
+    <li class="span2" class="{{colx}};">
+
+        {{#compare clicked false }}
+        <a href="../api/v1/download/{{../../apikey}}/{{../../sessionid}}/{{../../_fakeid}}/{{realindex}}">
+            {{../../handle}}-{{realindex}}
+        </a>
+        {{/compare}}
+        {{#compare clicked true }}
+        <span class="completed">
+            {{../../handle}}-{{realindex}}
+        </span>
+        {{/compare}}
+    </li>
+    {{/each_with_index}} -->
+    {{/if}}
+            <div class="details span3 pull-right"><div style="float:right">expires: {{timestamp_format expiration}}</div></div>
+    {{/compare}}
+
+</ul>
+
+
+
+<div class="divider span9">
+    <hr>
+</div>
+</div>

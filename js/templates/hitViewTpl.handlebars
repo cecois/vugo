@@ -1,0 +1,79 @@
+<li class="hit row span5">
+     <!--<div class="span2 thumbnail pull-left btnPreview">
+       <div class="badge pull-left">{{format}}</div>
+       <img src="{{thumb}}" width="95px" height="93px " alt="series thumbnail">
+        <p><span class="text-info"><strong>click for preview</strong></span></p>
+       <p><span class="text-info"><strong>preview</strong></span></p>
+     </div>
+        -->
+  <div class="pull-left title span3">
+  <a href="#details/{{series}}/{{handle}}">
+  {{ title }}
+  </a>
+
+
+   <span class="badge">{{format}}</span>
+  </div> <!-- /.title -->
+   <!-- <div class="description span7 pull-left muted">{{ description }}</div> -->
+
+   <div class="button-wrapper span2 pull-right">
+
+      <div class="btn-group span1 btn-group pull-left">
+       <a class="btn btnEnvelope">
+       <i class="icon-girl-footprint {{#equal envelonoff true}}active{{/equal}}" style="margin-top: 0px; margin-left: 3px;"></i>
+       </a>
+       {{#equal format "raster"}}
+       <a class="btn btnCoverage" rel="popover"><i class="icon-grid {{#equal covonoff true}}active{{/equal}}" style="margin-top:-1px;font-size:1.3em;"></i></a>
+       {{/equal}}
+       <a class="btn btnDetails"><i class="icon-read-more"></i></a>
+       <a class="btn btnDownload" ><i class="icon-awesome-download"></i></a>
+       <a class="btn btnPreview" ><i class="icon-eye {{#equal prevonoff true}}active{{/equal}}"></i></a>
+
+       <div>{{#btzoomcheck envelonoff covonoff prevonoff}}
+{{/btzoomcheck}}</div>
+     </div>
+   </div> <!-- /.button-wrapper -->
+
+
+<!--
+SLIDERS BLOCK
+ -->
+
+ {{#equal envelonoff true}}
+<input type="text" class="span1 sliderenvelope offset1" data-slider-orientation="horizontal" data-slider-selection="after" data-slider-tooltip="show"> <span class="text-warning" style="position:relative;top:5px;">envelope opacity</span>
+{{/equal}}
+{{#equal covonoff true}}
+<input type="text" class="span1 slidercoverage offset1" data-slider-orientation="horizontal" data-slider-selection="after" data-slider-tooltip="show"><span class="text-warning" style="position:relative;top:5px;">coverage opacity</span>
+{{/equal}}
+
+{{#equal format "raster"}}
+{{#equal prevonoff true}}
+<input type="text" class="span1 sliderpreview offset1" data-slider-orientation="horizontal" data-slider-selection="after" data-slider-tooltip="show"><span class="text-warning" style="position:relative;top:5px;">preview opacity</span>
+{{/equal}}
+{{/equal}}
+
+{{#equal prevonoff true}}
+{{#equal format "vector"}}
+<span class="span4 text-warning" style="position:relative;top:5px;">NOTE: vector previews are limited to 120 features</span>
+{{/equal}}
+{{/equal}}
+  <!-- <div class="span1"></div> -->
+  <!-- <div class="row span4"> -->
+
+<!-- here we pass all onoff values and the notes bc we have a Handlebars Helper that will do a booleaon OR check of the onoffs and if *any* are true the single notes value will return for display. If we don't do it this way we end up with multiple notes fields rendering if multiple buttons are pressed -->
+{{#notesResolve envelonoff covonoff prevonoff notes }}
+{{/notesResolve}}
+
+<!-- {{#equal prevonoff true}}
+<div class="anno span4">{{{notes}}}</div>
+{{/equal}}
+{{#equal envelonoff true}}
+<div class="anno span4">{{{notes}}}</div>
+{{/equal}}
+{{#equal covonoff true}}
+<div class="anno span4">{{{notes}}}</div>
+{{/equal}}
+ -->
+
+<!-- </div>/.row  -->
+</li><!-- ./ hit -->

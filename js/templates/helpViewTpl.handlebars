@@ -1,0 +1,1242 @@
+<div id="help-header" class="help-header navbar navbar-static navbar-inverse row">
+  <div class="navbar-inner">
+    <div class="container" style="width: auto;">
+      <ul class="nav span9" id="help-nav">
+        <li class="active">
+          <a href="#help-faq">FAQ</a>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            General Notes <b class="caret"></b>
+          </a>
+          <ul class="dropdown-menu">
+            <li class="">
+              <a href="#help-general-general">General Notes</a>
+            </li>
+            <li class="">
+              <a href="#help-general-webapp">Web App Intricacies</a>
+            </li>
+            <li class="">
+              <a href="#help-general-quality">Quality Notes</a>
+            </li>
+          </ul>
+        </li>
+        <li class="">
+          <a href="#help-searching">Searching</a>
+        </li>
+        <li class="">
+          <a href="#help-downloading">Downloading</a>
+        </li>
+        <li class="">
+          <a href="#help-perdisc">Per-Disc</a>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            API <b class="caret"></b>
+          </a>
+          <ul class="dropdown-menu">
+            <li class="active">
+              <a href="#help-api-discs">Discs (Clusters)</a>
+            </li>
+            <li class="">
+              <a href="#help-api-rasterenvelopes">Raster Envelopes</a>
+            </li>
+            <li class="">
+              <a href="#help-api-vectorenvelopes">Vector Envelopes</a>
+            </li>
+            <li class="divider"></li>
+            <li class="">
+              <a href="#help-api-geonames">GeoNames</a>
+            </li>
+            <li class="">
+              <a href="#help-api-geoserver">GeoServer</a>
+            </li>
+          </ul>
+        </li>
+        <li class="">
+          <a href="#help-updates">Updates</a>
+        </li>
+        <li class="">
+          <a href="#help-credits">Credits</a>
+        </li>
+      </ul>
+      <form class="navbar-search pull-right" action="">
+        <input placeholder="filter this help content by keyword" type="text" id="input-faqfilter" class="input-medium search-query span4"></form>
+      </div>
+    </div>
+  </div>
+
+  <div class="helpcontainer marketing row" data-spy="scroll" data-target="#help-header.navbar" data-offset="100">
+
+    <section class="span11" id="help-faq">
+      <h2>FAQ</h2>
+      <div class="span4"></div>
+      <div class="muted span7 homebody" style="text-align:left;">
+        <dl class="dl-horizontal">
+          <dt>What if my data seem/are corrupted?</dt>
+          <dd>
+            There is a known issue where data decompressed with WinZip can be physically altered, resulting in corruption. Lab machines imaged/reimaged after approximately July 2015 should not see this issue, but either way there's a <a href="https://c3.llan.ll.mit.edu/blogs/249650e6-9c85-498a-bd0d-59b7b602623a/entry/winzip_issue_solved?lang=en_us">posted <strong>solution</strong> to this annoyance</a>.
+          </dd>
+          <dt>What if I requested too much data?</dt>
+          <dd>
+           <p><em>If you find that your download job is too large, two things to consider:</em>
+
+            <ol>
+              <li>Any download job can be <em>redefined</em> by using the <i class="icon-pointer"></i> icon -- the layer's tiles will be loaded on the map and you can select a more specific/smaller area to download.</li>
+              <li>Or just <a href="mailto:christopher.miller@ll.mit.edu">email us</a> and tell us you want more than we're willing to deliver via the lab network. We'll arrange for you to get what you want, no problem.</li>
+            </ol>
+
+
+          </p>
+        </dd>
+        <dt>Can I press the 'option/alt' key?</dt>
+        <dd>
+          Is this question a plant? Yes, you can. It will show/hide this pane entirely in order to better work with the map. If you have auto-search (where you start typing anywhere and the browser immediately begins looking for that text on the page), you may end up having to click somewhere on the page before you hit the key again, though. Otherwise very useful.
+        </dd>
+        <!-- <dt>Can I press the 'control' key?</dt>
+        <dd>
+          That, too, yes. It will toggle the position of this pane, pushing it almost entirely to the right side of the screen so you can see more of the map.
+        </dd>
+        <dt>Can I press the '`' key?</dt>
+        <dd>
+          Ok, seriously, who is this? Yes, you can press the '`' (backtick - aka the tilde) key to toggle almost the entire set of elements that hover over the map. Similarly, the 'alt' key will toggle the main pane but retain the header.
+        </dd> -->
+        <dt>What should I do first?</dt>
+        <dd>
+          You can either type your area of interest (e.g. "South Korea" or "Flagstaff") into the search box or type words you think define your data need (e.g. "cib" or "elevation"). If you typed a location you can either click from the picklist or click "Find/Zoom to a Place" and the map will snap to your area of interest. If you click "Search for Data" your terms will be queried against the library's catalog of data holdings.
+        </dd>
+
+        <dt>What data are here?</dt>
+        <dd>
+          Available here are data sets that are permanent additions to the Library's collection. In most cases, the sources have been manipulated to improve electronic discovery and access.
+        </dd>
+        <dt>
+          What data are <em>not</em>
+          here?
+        </dt>
+        <dd>
+          At this point we do not index or deliver data that are not under the library's purview. You will not, therefore, find data produced elsewhere in The Lab, nor will you find other commonly-requested sources such as
+          <a href="http://factfinder2.census.gov/faces/nav/jsf/pages/index.xhtml">U.S. Census Data</a>
+          or Columbia's
+          <a href="http://sedac.ciesin.columbia.edu/gpw/index.jsp">Gridded Population of the World</a>. If at any time you would like help identifying data not available here, you are very welcome to request our assistance.
+        </dd>
+        <dt>How much data can I get?</dt>
+        <dd>
+          Meaning are there limits on the download size? Yes and no. We cap how much data can be delivered <em>per download</em>. Meaning we just aren't going to tarball a 10 TB dataset and let you pull it down over the wires. For data requests that exceed the cap (as of this writing set at 500mb), the delivery is split across <em>n</em> downloads, and your progress is managed with cookies. Even <em>then</em> delivering terabyte after terabyte of data over the network is not ideal and we encourage you to evaluate whether you truly need that much material. If you really do, feel free to contact us and we can arrange for another way to access the material.
+        </dd>
+        <dt>What will I get?</dt>
+        <dd>
+          Please see the <a href="#help-downloading">downloading</a> section for details on just what will show up in your downloads.
+        </dd>
+
+      </dl>
+
+    </div>
+  </section>
+
+  <section class="">
+    <h2>General Notes</h2>
+    <div id="help-general-general" class="muted homebody" style="text-align:left;">
+      <h4>General</h4>
+      <p>
+        This was built to facilitate electronic access to the store of digital geospatial data that formerly were available only on physical media in the Lincoln Laboratory Library &amp; Archives. As are most modern web applications, this is heavily dependent a more or less modern browser with javascript enabled. Strange behavior might result from using out-of-date browsers. And don't even get us started on IE -- it wasn't even available for testing during most of the development period due to security concerns, so we cannot at this point guarantee IE will execute as expected.
+      </p>
+      <p>
+        <img class="marketing-img img-polaroid pull-right" src="images/cookie-warning.jpg"  width="363px">
+        Likewise, because we didn't really want to force anybody to set up accounts and log in all the time, we manage downloads/sessions using cookies. If you do not have cookies enabled this will technically still work but if you close your tab/browser your information will not persist.
+      </p>
+    </div>
+
+    <div id="help-general-webapp" class="muted homebody" style="text-align:left;">
+      <h4>Web App Intricacies</h4>
+      <p>
+        At any time, clicking the <i class="icon-bubbles "></i>
+        icon will turn on inline annotations that might answer some immediate questions you have about this application's functionalities.
+      </p>
+      <p>
+        See the
+        <a href="#help-searching">Searching</a>
+        section for details about how to execute a query for data, but the rest of what happens can be described per tab:</p>
+        <dl>
+          <dt>Search Results</dt>
+          <dd>
+            <div>
+              Results are sorted by their ranking, which is informed by <a href="http://lucene.apache.org/solr/">Solr</a>'s own ranking algorithm, which we in turn boost with a popularity value, a manually-applied weighting value, and the dataset's relationship to the basemap at the time of the search. More specifically, datasets whose spatial extent overlaps the map are ranked higher than other datasets that match the keyword and datasets whose spatial extent most closely matches the map's surface area will rank higher still.</div>
+              <div>
+                <p>
+                  Moreover, each search hit comes with a set of nifty little buttons. To wit:
+
+                  <ul style="list-style:none;">
+                    <li style="padding-left:22px;margin-bottom:33px">
+                      <i class="icon-girl-footprint" style="height:100%;float:left;font-size:3em; margin-right:35px;clear:both;"></i>
+                      toggles a rectangular envelope representing the full, aggregate spatial extent of the dataset
+                    </li>
+                    <li style="padding-left:22px;margin-bottom:33px">
+                      <i class="icon-grid" style="height:100%;float:left;font-size:3em; margin-right:35px;clear:both;"></i>
+                      toggles a map layer depicting a grid of individual tiles' spatial extents (raster data only)
+                    </li>
+                    <li style="padding-left:22px;margin-bottom:33px">
+                      <i class="icon-read-more" style="height:100%;float:left;font-size:3em; margin-right:35px;clear:both;"></i>
+                      sends the dataset directly to the Details pain (the search results will not be lost), where more information is available about the resource
+                    </li>
+                    <li style="padding-left:22px;margin-bottom:33px">
+                      <i class="icon-awesome-download" style="height:100%;float:left;font-size:3em; margin-right:35px;clear:both;"></i>
+                      adds the dataset to your download queue -- raster datasets are added using the current map view as the "amount" to be downloaded (this can be adjusted from the Downloads tab)
+                    </li>
+                    <li style="padding-left:22px;margin-bottom:33px">
+                      <i class="icon-eye" style="height:100%;float:left;font-size:3em; margin-right:35px;clear:both;"></i>
+                      toggles a preview layer of the dataset -- vector data will be limited to something like 50 features and raster data will appear as a lesser-quality rendering of source data. (See <a href="#help-general-quality">Quality Notes</a> for an explanation.)
+                    </li>
+
+                    <li style="padding-left:22px;margin-bottom:33px">
+                      <i class="icon-zoomin" style="height:100%;float:left;font-size:3em; margin-right:35px;clear:both;"></i>
+                      fits the basemap to the full spatial extent of the resource (which is the default extent any time the envelope, coverage, or preview buttons are used) -- useful if you've manually adjusted the zoom/extent of the map and want to quickly snap back
+                    </li>
+                  </ul>
+                </p>
+                <p><a href="images/opacity-controls.jpg"><img class="marketing-img img-polaroid pull-left" src="images/opacity-controls.jpg"  width="113px"></a>For each different type of rendering of a dataset (full envelope, tile extents [raster only], data preview), an opacity slider will be added to the record that can be used to adjust the corresponding layer's translucency. These are clearly labeled per layer (see screencap), but do not persist between tabs.</p>
+              </div>
+
+            </dd>
+
+            <dt>Download Queue</dt>
+            <dd>
+              <p>
+                At its most basic, this is a list of the datasets whose 'Download' button you have pressed. While the window remains open the list self-updates and indicates visually the download progress of the job (individual links that have completed downloading will be crossed out and a small %-complete guage fills in). At any time you can click the
+                <i class="icon-x-altx-alt"></i>
+                button to remove the dataset from the queue completely.
+              </p>
+              <p>
+                For raster data, an additional option exists for selecting subsets of the data. Clicking the
+                <i class="icon-pointer"></i>
+                button will activate the subselection tool and menu. A couple of notes about this procedure:
+                <img class="marketing-img img-polaroid pull-right" src="images/leo-download-subset.jpg"  width="213px">
+                <ul>
+                  <li>
+                    The map will display a layer illustrating the individual tiles available for selection.
+                  </li>
+                  <li>The cursor will change to a crosshair.</li>
+                  <li>
+                    Simply drag a box on the map over the area for which you want data.
+                  </li>
+                  <li>
+                    A rough estimate of the
+                    <em>new</em>
+                    download size will hover over the cursor as you drag.
+                  </li>
+                  <li>
+                    Upon completion of the rectangle, the new estimate will appear in the list of download details.
+                  </li>
+                  <li>
+                    The download job will not be redefined until you click
+                    <i class="icon-checkmark"></i>
+                    to accept the changes.
+                  </li>
+                  <li>
+                    You may cancel the subset procedure by clicking
+                    <i class="icon-x-altx-alt"></i>
+                    .
+                  </li>
+                  <li>
+                    If you lose the crosshair tool (e.g. you've drawn a box once and you've made a huge mistake), you can redraw by clicking
+                    <i class="icon-target"></i>
+                    .
+                  </li>
+                </ul>
+              </p>
+            </dd>
+
+            <dt>Details</dt>
+            <dd>
+              Additional details about datasets are revealed here, including full abstracts (including notes we may have added in-house), publication dates, temporal coverage ranges, and other details.
+            </dd>
+          </dl>
+        </div>
+        <div id="help-general-quality" class="muted homebody" style="text-align:left;">
+          <h4>Quality Notes</h4>
+          <p>
+            All downloads will deliver data at their original quality (though for vector data and some raster series, *not* in their original formats). The quality of the original data, of course, varies per series (often per sub-series).
+          </p>
+          <p>
+            For raster data in particular, however, the previews will be of, at times, noticeably lesser quality than the real sources from which they were derived. In order to efficiently deliver data to the browser, we both compress and resample the imagery (not to mention deliver as tiled .png images). This allows us to deliver more or less seamless previews of entire series at any scale but degrades the quality of the previews. See the following comparison:
+          </p>
+          <div class="row span9" style="margin-bottom: 111px;">
+            <!-- /.fudging layout bc lightbox height isn't accounted for -->
+            <div class="popup-gallery">
+              <ul class="">
+                <li class="span4">
+                  <div class="thumbnail pull-left" style="background-color:black;">
+                    <a href="images/cib_res-jpg.jpg" title="jpeg compressed, YCBCR GDAL color model, delivered to browser as png" rel="noreferrer">
+                      <img src="images/cib_res-jpg.jpg" class="span3 marketing-img" ></a>
+                      <p>rendered preview sample</p>
+                    </div>
+                  </li>
+                  <li class="span4">
+                    <div class="thumbnail pull-left" style="background-color:black;">
+                      <a href="images/cib_res-full.jpg" title="raw *.i4* tiles" rel="noreferrer">
+                        <img src="images/cib_res-full.jpg" class="span3 marketing-img" ></a>
+                        <p>full resolution source sample</p>
+                      </div>
+                    </li>
+                  </ul>
+                </div><!-- /.popup-gallery -->
+              </div>
+              <!-- /.row --> </section>
+
+              <section id="help-downloading">
+                <h2>Downloading</h2>
+                <div class="muted homebody" style="text-align:left;">
+                  <p>
+                    <img src="images/leo-download-progress.jpg" class="marketing-img img-polaroid pull-right" style="width:160px;height:80px;">
+                    Vector data will download as a single zip archive of however much data you requested. At least upon initial release this will be hard-wired to the Shapefile format, although we do expect to ultimately offer a choice should users desire it.
+                  </p>
+                  <p>
+                    The same is mostly true for raster data, but there is some nuance. First of all, in order to facilitate access to data below the level of the compact discs on which they ship, we deliver raster data in their native, tiled structures. A request for a rectangle's-worth of CIB01 data that happens to span multiple discs will grab up all the individual tiles under that envelope and return them, tarballed, in their native formats. All of the GIS packages we have tested read these formats natively, but if reports come in that suggest we need to pre-convert we will consider it. As with vector data we expect at some point to be able to offer an inline choice of delivery format (depending on the performance hit).
+                  </p>
+                  <p>
+                    It's very likely that you'll be requesting data that eclipses the cap we put on individual downloads, which as of this writing is 500mb. When that happens, your download will be split across however many 500mb chunks will encompass the request. You can imagine that for big jobs equaling many individual downloads it might grow cumbersome to sit and click link after link after link. To that end, we're using cookies (and not accounts) to tie your browser to the downloads you've requested. If cookies are turned on in your browser, you will be able to quit/close your browser before you complete downloading all of the chunks of a request and still return at a later time to complete your work.
+                  </p>
+                  <p>
+                    You're welcome to use a download manager as well (
+                    <a href="https://addons.mozilla.org/en-US/firefox/addon/downthemall/">DownThemAll!</a>
+                    for Firefox,
+                    <a href="https://chrome.google.com/webstore/detail/downloadall/ajffocjdcmpgjmdfdfkdfdbkjafbkcke?hl=en">DownloadAll</a>
+                    for Chrome, et al). If we start seeing performance issues at some point we will adjust how we handle bulk downloading.
+                  </p>
+                </div>
+                <!-- /.muted homebody -->
+              </section>
+              <!-- /.help-downloading -->
+
+              <section id="help-perdisc" class="span11">
+                <h2>Per-Disc Access</h2>
+                <div class="muted homebody" style="text-align:left;">
+                  The library's <a href="http://libweb/mtblog/Maps/" title="Maps">prior system of access</a> to our geospatial data collection delivered data primarily by CD or DVD. LL GeoData, alternatively, offloads the data from these optical media and groups/delivers them as one seamless "layer" of data for each series (where "series" is "CIB 10-Meter" or "VMAP Level 1," etc.). However! As a means of easing the transition from the old system to the new, we offer a couple of ways that users can still obtain data at the disc level.
+                  <dt>#fmp</dt>
+                  <dd>
+                    <p><a href="images/leo-fmp.jpg"><img class="marketing-img img-polaroid pull-right" src="images/leo-fmp.jpg"  width="213px"></a>There is a somewhat hidden way to arrive at this application that presents a special case when it comes to downloading. When we link to this app from the old system of delivering our data, we throw the name of a CD or DVD, e.g. 'libgeo/#fmp/srt201.zip' for the SRT201 disc. When LL GeoData receives something via the #FMP route, it tries to find the spatial envelope of that entire disc and, if successful, slaps it on the map and zooms to it. It also executes a search for the series to which that disc belongs. Which is fine, of course, but you should know that any download job enqueued while the disc's envelope is visible on the map <strong>will be constricted to that disc footprint's extent and not the map's extent, as usual</strong>. In most cases the differences might be minor (since we zoomed to the footprint first), but some footprints don't match the shape of the browser very closely.
+                    </p>
+                    <p>Consider this method a kind of hybrid access, where you won't receive a full disc, but rather your download selection will be closely matched to that disc's spatial extent. If you really want to download a zipped-up CD or DVD, see below.
+                    </p>
+                  </dd>
+                  <dt>#perdisc</dt>
+                  <dd>
+                    <a href="images/leo-perdisc-main.png"><img class="marketing-img img-polaroid pull-right" src="images/leo-perdisc-main.png" width="213px"></a>
+                    Using the "Per-Disc" tab (or entering via a url like <a href="#perdisc/srtm01">#perdisc/srtm01</a>) reveals <em>actual</em> access to the zipped-up CD or DVD-ROMs that feed the per-series layers that are represented by LL GeoData search hits. Loading <a href="#perdisc/srtm01">#perdisc/srtm01</a> will reach into metadata and load the spatial extents of all the discs we have that comprise the "srtm01" series ("Shuttle Radar Topography Mission - Level 1"). Each disc's extent, when clicked, provides a link to download that disc. At the same time, in the main window, two lists appear. At left are all the series we make available, at right are all the discs available for the chosen series (in effect a text version of the envelopes that appear on the map). These list items also provide buttons to download individual discs and/or highlight/zoom to that disc's spatial extent.
+                  </dd>
+
+                  <dt>#md5</dt>
+                  <dd>
+                    <a href="images/leo-perdisc-main.png"><img class="marketing-img img-polaroid pull-right" src="images/leo-perdisc-md5.jpg" width="213px"></a>
+                    In March 2016, by request, we added an additional route for downloading entire (zipped-up) discs by their md5 hash. The url for that looks like <a href="http://libgeo/api/v1/md5/dffecc76ab722df313535d4a3982f11f">http://libgeo/api/v1/md5/dffecc76ab722df313535d4a3982f11f</a>. But how are you supposed to <em>know</em> the hash? Good point - we added a small button (hashtag icon- <i class="icon-hash"/>) in the <a href="#perdisc">Per-Disc query</a> tab. Click that. If your browser supports it the md5 hash string will automatically copy to your clipboard. If your browser doesn't we'll popup a little notification and you can copy it manually from there.
+                  </dd>
+                </div>
+                <!-- /.muted homebody -->
+              </section>
+              <!-- /.help-perdisc -->
+
+              <section class="span11" id="help-searching">
+                <h2>Searching</h2>
+                <div class="muted homebody" style="text-align:left;">
+
+                  <h4>The Data Search Box</h4>
+                  <p>Accepts:</p>
+                  <ul>
+                    <li>whatever you want to type right off the dome, e.g. "dted" or "elevation" or "canals"</li>
+                    <li>also supports more advanced query, using <a href='http://lucene.apache.org/core/3_6_0/queryparsersyntax.html'>Lucene syntax</a> -- more information about the index fields available can be found in the algorithm section, below.</li>
+                  </ul>
+
+                  <h4>The Geocoding Box</h4>
+                  <p>Accepts:</p>
+                  <ul>
+                    <li>placenames (e.g. 'Spokane' or 'London' or 'Mozambique,' etc.)</li>
+                    <li><a href="http://en.wikipedia.org/wiki/Well-known_text" title="None">WKT strings</a></li>
+                    <li>geographic coordinate pairs (as lat,lng) - WGS84 datum is assumed</li>
+                    <li>geographic coordinate polygon strings (as west,south,east,north) - WGS84 datum is assumed</li>
+                  </ul>
+                  <p>If we detect mappable wkt or coordinate strings we'll pop up a little notice and you can choose to zoom to the location you entered. Hopefully -- assuming we can parse it correctly ;-)</p>
+                  <p>
+                   <a href="images/geodetect-pair.jpg"><img class="marketing-img img-polaroid pull-right" src="images/geodetect-pair.jpg" width="213px"></a>
+                   <a href="images/geodetect-poly.jpg"><img class="marketing-img img-polaroid pull-right" src="images/geodetect-poly.jpg" width="213px"></a>
+                   <a href="images/geodetect-wktpoint.jpg"><img class="marketing-img img-polaroid pull-right" src="images/geodetect-wktpoint.jpg" width="213px"></a>
+                   <a href="images/geodetect-wktpoly.jpg"><img class="marketing-img img-polaroid pull-right" src="images/geodetect-wktpoly.jpg" width="213px"></a>
+                 </p><p>Any term typed into the geocoding input field will be shopped on the fly against the <a href="http://www.freebase.com/">Freebase</a> API. If the result contains geographic entities (cities, countries, states, national parks, famous naturally-occurring features, etc.) they can be clicked to make the map zoom and identify that entity. (<em>Technically</em> what's happening here is that the term is re-shopped to the <a href="http://developer.mapquest.com/web/products/open/nominatim">Nominatum API</a> to pull out the geographic representation of that place for rendering on a map. If Nominatum does not respond with valid geography, we re-shop the term to our <a href="#help-api-geonames">in-house instance</a> of the <a href="http://geonames.org">GeoNames</a> database to at least pull out a coordinate pair of that place.)
+               </p>
+               <div class="row">
+                <div class="popup-gallery">
+                  <a href="images/leo-freebase-picklist.jpg">
+                    <img src="images/leo-freebase-picklist.jpg" class="marketing-img img-polaroid pull-left span3"></a>
+                    <a href="images/leo-freebase-poly.jpg">
+                      <img src="images/leo-freebase-poly.jpg" class="marketing-img img-polaroid pull-left span3"></a>
+                      <a href="images/leo-search-results.jpg">
+                        <img src="images/leo-search-results.jpg" class="marketing-img img-polaroid pull-left span3"></a>
+                      </div>
+                      <!-- /.popup-gallery --> </div>
+                      <h4>The Search Algorithm</h4>
+                      <p>
+                        We take pains to make the search algorithm here return good results with minimal cognitive overhead. Most of the time, therefore, we expect a halfway decently-contructed keyword search will suffice. Power users, however, might be pleased to know that because we use Solr for searching/indexing there is the full complement of Solr (Lucene) search tricks at your disposal. There is plenty of help on the greater web for interacting with Solr-backed search services, but a good place to start is the
+                        <a href="http://wiki.apache.org/solr/SolrQuerySyntax">Solr Wiki</a>. The list of indexed metadata fields below should be of some use to those who want to bend our search to their will or who otherwise need a fuller understanding of what we catalog.
+                      </p>
+                      <p>
+                        <div class="solr_fields">
+                          {{#each fields}}
+                          <div class="key">{{@key}}</div>
+                          <div>
+                            <div class="description muted">
+                              {{! for this we go get a description for each key that we hard-write into helpView since solr will not store it for us in the schema}}
+                              <em>{{joinDescription @key}}</em>
+                            </div>
+                            {{! we only want top terms for specific fields }}
+                            {{#equal @key "format"}}
+                            <div class="sample_terms">
+                              Sample Terms:
+                              <ul>
+                                {{#each this.topTerms}}
+                                {{! probably we only want to see top terms if they are strings, use isString helper}}
+                                {{#isString this true}}
+                                <li>{{this}}</li>
+                                {{/isString}}
+                                {{/each}}
+                              </ul>
+                            </div>
+                            {{/equal}}
+
+
+                            {{#equal @key "handle"}}
+                            <div class="sample_terms">
+                              Sample Terms:
+                              <ul>
+                                {{#each this.topTerms}}
+                                {{#isString this true}}
+                                <li>{{this}}</li>
+                                {{/isString}}
+                                {{/each}}
+                              </ul>
+                            </div>
+                            {{/equal}}
+
+
+                            {{#equal @key "location"}}
+                            <div class="sample_terms">
+                              Sample Terms:
+                              <ul>
+                                {{#each this.topTerms}}
+                                {{#isString this true}}
+                                <li>{{this}}</li>
+                                {{/isString}}
+                                {{/each}}
+                              </ul>
+                            </div>
+                            {{/equal}}
+
+
+                            {{#equal @key "resolution"}}
+                            <div class="sample_terms">
+                              Sample Terms:
+                              <ul>
+                                {{#each this.topTerms}}
+                                {{#isString this true}}
+                                <li>{{this}}</li>
+                                {{/isString}}
+                                {{/each}}
+                              </ul>
+                            </div>
+                            {{/equal}}
+
+
+                            {{#equal @key "series"}}
+                            <div class="sample_terms">
+                              Sample Terms:
+                              <ul>
+                                {{#each this.topTerms}}
+                                {{#isString this true}}
+                                <li>{{this}}</li>
+                                {{/isString}}
+                                {{/each}}
+                              </ul>
+                            </div>
+                            {{/equal}}
+
+
+                            {{#equal @key "subject"}}
+                            <div class="sample_terms">
+                              Sample Terms:
+                              <ul>
+                                {{#each this.topTerms}}
+                                {{#isString this true}}
+                                <li>{{this}}</li>
+                                {{/isString}}
+                                {{/each}}
+                              </ul>
+                            </div>
+                            {{/equal}}
+
+
+                            {{#equal @key "tags"}}
+                            <div class="sample_terms">
+                              Sample Terms:
+                              <ul>
+                                {{#each this.topTerms}}
+                                {{#isString this true}}
+                                <li>{{this}}</li>
+                                {{/isString}}
+                                {{/each}}
+                              </ul>
+                            </div>
+                            {{/equal}}
+                          </div>
+                          {{/each}}
+                        </div>
+                        <!-- /.solr_fields --> </p>
+                      </div>
+                    </section>
+                    <!-- /.help-searching -->
+                    <section class="" id="help-api">
+                      <h2>API</h2>
+                      <div id="help-api-discs" class="muted homebody" style="text-align:left;">
+                        <h4>Discs (Clusters)</h4>
+                        <dl class="apidoc">
+                          <div class="route">GET->/discs/:series/:outform/:type</div>
+                          <p class="desc"> <em>For raster sources only, delivers an array of the individual discs (or other manual clusters) that have been processed and made available as part of the :series.</em>
+                          </p>
+                          <dt>series</dt>
+                          <dd>
+                            <p class="desc">
+                              This is the major series designator, as in "cib01" or "dted02," et al. If passed a disc filename (e.g. "CDRG-5NINM3134" or "CDRG-5NINM3134.zip") <em>and</em> the "type" is set to "fmp" the API returns the metadata record we have for the original disc that came in through the door.
+                            </p>
+                          </dd>
+                          <dt>outform</dt>
+                          <dd>
+                            <p class="desc">Format of the output, valid forms here are json. That's it!</p>
+                          </dd>
+                          <dt>type</dt>
+                          <dd>
+                            <p>
+                              <span class="example">individual</span>
+                              will return an array of individual discs or organizing clusters
+                            </p>
+                            or
+                            <p>
+                              <span class="example">aggregate</span>
+                              will return the starting publication date and ending publication date for the given series -- typically used internally and not of public interest
+                            </p>
+                          </dd>
+                          <dt>example</dt>
+                          <dd>
+                            <p class="call"><a href="http://libgeo/api/v1/discs/dted01/json/individual">http://libgeo/api/v1/discs/dted01/json/individual</a></p>
+                            <p class="response well">
+                             {
+                             &quot;envelope&quot;: &quot;POLYGON((-180.00125 65.9995833333333,-180.00125 73.0004166666667,-107.99875 73.0004166666667,-107.99875 65.9995833333333,-180.00125 65.9995833333333))&quot;,
+                             &quot;md5&quot;: &quot;ad571fde2a5fa9730e5d739766a0de0f&quot;,
+                             &quot;resid&quot;: &quot;dted101&quot;,
+                             &quot;series&quot;: &quot;dted01&quot;,
+                             &quot;title&quot;: &quot;DTED&reg; (Digital Terrain Elevation Data) Level 1 Coverage (Arctic Ocean)&quot;
+                           },...
+                         </p>
+                         <p class="desc">
+                          ...where the resid values are IDs of individual discs or clusters of discs
+                        </p>
+                      </dd>
+                      <dt>example</dt>
+                      <dd>
+                        <p class="call"><a href="http://libgeo/api/v1/discs/CDRG-5NINM3134/json/fmp">http://libgeo/api/v1/discs/CDRG-5NINM3134/json/fmp</a></p>
+                        <p class="response well">
+                          [{"title":"Compressed ARC Digitized Raster Graphics (CADRG): (Italy France Belgium Netherlands Germany Poland Czech Republic Slovakia Hungary Austria Switzerland Croatia Bosnia Herzegovina Serbia Ukraine Romania Bulgaria Macedonia Greece Albania Algeria Tunisia Libya Spain)","series":"cdrg","resid":"CDRG-5NINM3134","envelope":"POLYGON ((-0.514152168267998 52.29146692233941,24.213325859075752 52.29146692233941,24.213325859075752 31.581975071908076,-0.514152168267998 31.581975071908076,-0.514152168267998 52.29146692233941))"}]
+                        </p>
+                        <p class="desc">
+                          ...where the "envelope" block is the spatial extent of the disc's full contents, no matter any gaps
+                        </p>
+                      </dd>
+                    </dl>
+                  </div>
+                  <div id="help-api-rasterenvelopes" class="muted homebody" style="text-align:left;">
+                    <h4>Raster Envelopes</h4>
+                    <dl class="apidoc">
+                      <div class="route">GET->/rasterenvelopes/:series/:disc/:outform/:type</div>
+                      <p class="desc">This route is designed primarily to deliver spatial extents of raster sources. It's used by the GUI's <i class="icon-girl-footprint"></i> button. The variables here determine whether entire series' envelopes are returned versus some sub-series slice.
+                      </p>
+                      <dt>series</dt>
+                      <dd>
+                        <p class="desc">
+                          This is the major series designator, as in "cib01" or "dted02," et al.
+                        </p>
+                      </dd>
+                      <dt>disc</dt>
+                      <dd>
+                        <p class="desc">
+                          Which piece of the series do you want to represent? Valid values are individual disc IDs (e.g. "dted104") or "all," in which case all available discs in the series are returned.
+                        </p>
+                      </dd>
+                      <dt>outform</dt>
+                      <dd>
+                        <p class="desc">
+                          Format of response. Valids are
+                          <span class="example">geojson</span>
+                          ,
+                          <span class="example">json</span>
+                          ,
+                          <span class="example">kml</span>
+                          , and
+                          <span class="example">wkt</span>
+                          .
+                        </p>
+                      </dd>
+                      <dt>type</dt>
+                      <dd>
+                        <p class="desc">
+                          Do you want envelopes for each component (disc/cluster/etc.) of the series or the entire series? Use
+                          <span class="example">individual</span>
+                          or
+                          <span class="example">aggregate</span>
+                          , respectively.
+                        </p>
+                      </dd>
+
+                      <dt>example</dt>
+                      <dd>
+                        <p class="call">
+                          <a href="http://libgeo/api/v1/rasterenvelopes/dted01/dted104/json/aggregate">http://libgeo/api/v1/rasterenvelopes/dted01/dted104/json/aggregate</a>
+                        </p>
+                        <p class="response well">
+                          {
+                          &quot;results&quot; : [
+                          [
+                          {
+                          &quot;location&quot; : &quot;aggregated envelope - you should know that coverage is probably not contiguous&quot;,
+                          &quot;bbox_south&quot; : &quot;65.9995833333333&quot;,
+                          &quot;bbox_west&quot; : &quot;-24.00125&quot;,
+                          &quot;id&quot; : &quot;1&quot;,
+                          &quot;st_extent&quot; : &quot;BOX(-24.00125 65.9995833333333,72.00125 82.0004166666667)&quot;,
+                          &quot;bbox_north&quot; : &quot;82.0004166666667&quot;,
+                          &quot;bbox_east&quot; : &quot;72.00125&quot;
+                        }
+                        ]
+                        ]
+                      }
+                    </p>
+                    <p class="desc">
+                      Here, disc/cluster dted104 was requested with an
+                      <span class="example">aggregate</span>
+                      type, and the result will be the max spatial extent of all of the dted104 tiles.
+                    </p>
+                  </dd>
+                  <dt>example</dt>
+                  <dd>
+                    <p class="call">
+                      <a href="http://libgeo/api/v1/rasterenvelopes/dted01/dted104/json/individual">http://libgeo/api/v1/rasterenvelopes/dted01/dted104/json/individual</a>
+                    </p>
+                    <p class="response well">
+                      {
+                      &quot;results&quot; : [
+                      [
+                      {
+                      &quot;location&quot; : &quot;sources/DTED104/DTED/E010/N78.DT1&quot;,
+                      &quot;bbox_south&quot; : &quot;77.9995833333333&quot;,
+                      &quot;grouping&quot; : &quot;dted104&quot;,
+                      &quot;id&quot; : &quot;13905&quot;,
+                      &quot;bbox_west&quot; : &quot;9.99833333333333&quot;,
+                      &quot;st_transform&quot; : &quot;0106000020E61000000100000001030000000100000005000000BF58F28B25FF23403A6DA0D306C0534041A70D74DA0026403A6DA0D306C0534041A70D74DA002640C6925F2CF97F5340BF58F28B25FF2340C6925F2CF97F5340BF58F28B25FF23403A6DA0D306C05340&quot;,
+                      &quot;bbox_north&quot; : &quot;79.0004166666667&quot;,
+                      &quot;bbox_east&quot; : &quot;11.0016666666667&quot;
+                    },
+                    {
+                    &quot;location&quot; : &quot;sources/DTED104/DTED/E010/N79.DT1&quot;,
+                    &quot;bbox_south&quot; : &quot;78.9995833333333&quot;,
+                    &quot;grouping&quot; : &quot;dted104&quot;,
+                    &quot;id&quot; : &quot;13906&quot;,
+                    &quot;bbox_west&quot; : &quot;9.99833333333333&quot;,
+                    &quot;st_transform&quot; : &quot;0106000020E61000000100000001030000000100000005000000BF58F28B25FF23403A6DA0D30600544041A70D74DA0026403A6DA0D30600544041A70D74DA002640C6925F2CF9BF5340BF58F28B25FF2340C6925F2CF9BF5340BF58F28B25FF23403A6DA0D306005440&quot;,
+                    &quot;bbox_north&quot; : &quot;80.0004166666667&quot;,
+                    &quot;bbox_east&quot; : &quot;11.0016666666667&quot;
+                  },
+                </p>
+                <p class="desc">
+                  Here, disc/cluster dted104 was requested with an
+                  <span class="example">individual</span>
+                  type, so the result will be a collection of
+                  <em>each</em>
+                  graticule/tile on that disc/cluster.
+                </p>
+              </dd>
+              <dt>example</dt>
+              <dd>
+                <p class="call"><a href="http://libgeo/api/v1/rasterenvelopes/dted01/all/json/aggregate">http://libgeo/api/v1/rasterenvelopes/dted01/all/json/aggregate</a></p>
+                <p class="response well">
+                  {
+                  &quot;results&quot; : [
+                  [
+                  {
+                  &quot;location&quot; : &quot;aggregated envelope - you should know that coverage is probably not contiguous&quot;,
+                  &quot;bbox_south&quot; : &quot;-54.0004166666667&quot;,
+                  &quot;bbox_west&quot; : &quot;-180.00125&quot;,
+                  &quot;id&quot; : &quot;1&quot;,
+                  &quot;st_extent&quot; : &quot;BOX(-180.00125 -54.0004166666667,180.00125 82.0004166666667)&quot;,
+                  &quot;bbox_north&quot; : &quot;82.0004166666667&quot;,
+                  &quot;bbox_east&quot; : &quot;180.00125&quot;
+                }
+                ]
+                ]
+              }
+            </p>
+            <p class="desc">
+              Here, all discs/clusters for series dted01 were requested with an
+              <span class="example">aggregate</span>
+              type, so the result will be the full extent of all the series' disc/clusters taken together.
+            </p>
+          </dd>
+          <dt>example</dt>
+          <dd>
+            <p class="call">
+              <a href="http://libgeo/api/v1/rasterenvelopes/dted01/all/json/individual">http://libgeo/api/v1/rasterenvelopes/dted01/all/json/individual</a>
+            </p>
+            <p class="response well">
+              {
+              &quot;results&quot; : [
+              [
+              {
+              &quot;location&quot; : &quot;sources/DTED101/dted/w110/n67.dt1&quot;,
+              &quot;bbox_south&quot; : &quot;66.9995833333333&quot;,
+              &quot;grouping&quot; : &quot;dted101&quot;,
+              &quot;id&quot; : &quot;13357&quot;,
+              &quot;bbox_west&quot; : &quot;-110.000833333333&quot;,
+              &quot;st_transform&quot; : &quot;0106000020E6100000010000000103000000010000000500000074DA40A70D805BC03A6DA0D3060051408C25BF58F23F5BC03A6DA0D3060051408C25BF58F23F5BC0C6925F2CF9BF504074DA40A70D805BC0C6925F2CF9BF504074DA40A70D805BC03A6DA0D306005140&quot;,
+              &quot;bbox_north&quot; : &quot;68.0004166666667&quot;,
+              &quot;bbox_east&quot; : &quot;-108.999166666667&quot;
+            },
+            {
+            &quot;location&quot; : &quot;sources/DTED101/dted/w110/n68.dt1&quot;,
+            &quot;bbox_south&quot; : &quot;67.9995833333333&quot;,
+            &quot;grouping&quot; : &quot;dted101&quot;,
+            &quot;id&quot; : &quot;13358&quot;,
+            &quot;bbox_west&quot; : &quot;-110.000833333333&quot;,
+            &quot;st_transform&quot; : &quot;0106000020E6100000010000000103000000010000000500000074DA40A70D805BC03A6DA0D3064051408C25BF58F23F5BC03A6DA0D3064051408C25BF58F23F5BC0C6925F2CF9FF504074DA40A70D805BC0C6925F2CF9FF504074DA40A70D805BC03A6DA0D306405140&quot;,
+            &quot;bbox_north&quot; : &quot;69.0004166666667&quot;,
+            &quot;bbox_east&quot; : &quot;-108.999166666667&quot;
+          },
+        </p>
+        <p class="desc">
+          Here, all discs/clusters for series dted01 were requested with an
+          <span class="example">individual</span>
+          type, so the result will be individual features for each disc/cluster that comprise the series.
+        </p>
+
+      </dd>
+    </dl>
+    <div class="row popup-gallery span11" style="">
+      <ul class="span8" style="margin-left: 0px;">
+        <li class="">
+          <div style="background-color:black;" class="thumbnail">
+            <a rel="noreferrer" title="/api/v1/rasterenvelopes/dted01/all/json/aggregate" href="images/api-dted01-all_aggregate.jpg">
+              <img class="span3 marketing-img" src="images/api-dted01-all_aggregate.jpg"></a>
+              <p>/api/v1/rasterenvelopes/dted01/all/json/aggregate</p>
+            </div>
+          </li>
+          <li class="">
+            <div style="background-color:black;" class="thumbnail">
+              <a rel="noreferrer" title="/api/v1/rasterenvelopes/dted01/all/json/individual" href="images/api-dted01-all_individual.jpg">
+                <img class="span3 marketing-img" src="images/api-dted01-all_individual.jpg"></a>
+                <p>/api/v1/rasterenvelopes/dted01/all/json/individual</p>
+              </div>
+            </li>
+
+            <li class="">
+              <div style="background-color:black;" class="thumbnail">
+                <a rel="noreferrer" title="/api/v1/rasterenvelopes/dted01/dted104/json/aggregate" href="images/api-dted01-dted104_aggregate.jpg">
+                  <img class="span3 marketing-img" src="images/api-dted01-dted104_aggregate.jpg"></a>
+                  <p>/api/v1/rasterenvelopes/dted01/dted104/json/aggregate</p>
+                </div>
+              </li>
+
+            </ul>
+          </div><!-- /.popup-gallery -->
+
+        </div>
+        <div id="help-api-vectorenvelopes" class="muted homebody" style="text-align:left;">
+          <h4>Vector Envelopes</h4>
+          <dl class="apidoc">
+            <div class="route">GET->/vectorenvelopes/:series/:handle/:outform</div>
+            <p class="desc"> vectorenvelopes returns similar to rasterenvelopes, but has no control over pulling out the component pieces (discs/clusters) since our vector data aren't organized as such.
+            </p>
+            <dt>series</dt>
+            <dd>
+              <p class="desc">
+                major vector series descripter (e.g. "vmap01" or "vmap02")
+              </p>
+            </dd>
+            <dt>handle</dt>
+            <dd>
+              <p class="desc">
+                minor vector series descripter (e.g. "bnd_barrierl" or "elev_countourl")
+              </p>
+            </dd>
+            <dt>outform</dt>
+            <dd>
+              <p class="desc">
+                output format; valids are
+                <span class="example">geojson</span>
+                ,
+                <span class="example">json</span>
+                ,
+                <span class="example">kml</span>
+                , and
+                <span class="example">wkt</span>
+                .
+              </p>
+            </dd>
+
+            <dt>example</dt>
+            <dd>
+              <p class="call"><a href="http://libgeo/leo/api/v1/vectorenvelopes/vmap01/libref_libref/json">http://libgeo/leo/api/v1/vectorenvelopes/vmap01/libref_libref/json</a></p>
+              <p class="response">{
+                &quot;results&quot; : [
+                [
+                {
+                &quot;bbox_south&quot; : &quot;-84&quot;,
+                &quot;bbox_west&quot; : &quot;-179.9999&quot;,
+                &quot;st_extent&quot; : &quot;BOX(-179.9999 -84,179.9999 83.6539840698242)&quot;,
+                &quot;bbox_north&quot; : &quot;83.6539840698242&quot;,
+                &quot;bbox_east&quot; : &quot;179.9999&quot;
+              }
+              ]
+              ]
+            }</p>
+          </dd>
+        </dl> <!-- /.apidoc -->
+      </div>
+      <div id="help-api-geonames" class="muted homebody" style="text-align:left;">
+        <h4>GeoNames</h4>
+        <p class="desc">Recall that the search box is multi-functional. One thing you can do is type placenames (or other known locations) into the box and pick from the popout list. You'll be zoomed to that location so any ensuing searches will be informed by the map's state. Then of course you can type your keywords into the same box and click "Search for Data" in order to query our data catalog.</p>
+        <p class="desc">But a little more about the former. When you type a location into the search field, your term is shopped against the Freebase api. <a href="http://freebase.com">Freebase</a> is "a community-curated database of well-known people, places, and things," and among its many virtues is that it often returns spatial objects with its search results. Entering "Alaska" into the search field and selecting the top hit will request Alaska's spatial object from Freebase, load it onto the map, and zoom to it. It's basic geocoding with the nifty bonus of actual spatial shapes.</p>
+        <p class="desc">But Freebase sometimes fails to bring back results, and in order to have a fallback to still get you where you want to be on the map, we've stood up a local instance of the <a href="http://www.geonames.org/">GeoNames</a> service. In front of GeoNames we have a Solr instance that allows for standard Solr (Lucene)-style searching of the GeoNames datastore. We built it largely for internal use, but since we have it, we might as well let you know about it, yeah?</p>
+        <dl class="apidoc">
+          <div class="route">GET->/geonames/collection1/select?q=&#60;key&#62;:&#60;value&#62;&amp;wt=&#60;format&#62;$sort=&#60;sortlist&#62;&amp;rows=&#60;rowsnum&#62;</div>
+
+          <dt>key:value</dt>
+          <dd>
+            <p class="desc">
+              Searchable keys include "name," "country_code," and "feature_class." See the "featureClass" block in <a href="http://www.geonames.org/export/geonames-search.html">GeoNames' own documentation</a> for valids. Note that the colon should stay but you're welcome (advised, even) to right-truncate using the * wildcard or other Solr tricks you might know.
+            </p>
+          </dd>
+
+          <dt>format</dt>
+          <dd>
+            <p class="desc">
+              Output format. Defaults to xml, but valids include "json," "csv."
+            </p>
+          </dd>
+
+
+
+          <dt>sortlist</dt>
+          <dd>
+            <p class="desc">
+              Space-delimited array of fields on which to sort, in order.
+            </p>
+          </dd>
+
+
+          <dt>rowsnum</dt>
+          <dd>
+            <p class="desc">
+              How many records do you want?
+            </p>
+          </dd>
+
+          <dt>example</dt>
+          <dd>
+            <p class="call"><a href="http://libgeo/geonames/collection1/select?q=feature_class:R&amp;wt=json&amp;indent=on&amp;sort=score desc,population desc&amp;rows=11">http://libgeo/geonames/collection1/select?q=feature_class:R&amp;wt=json&amp;indent=on&amp;sort=score desc,population desc&amp;rows=11</a></p>
+            <p class="response">{
+              &quot;responseHeader&quot;:{
+              &quot;status&quot;:0,
+              &quot;QTime&quot;:370,
+              &quot;params&quot;:{
+              &quot;sort&quot;:&quot;score desc,population desc&quot;,
+              &quot;indent&quot;:&quot;on&quot;,
+              &quot;q&quot;:&quot;feature_class:R&quot;,
+              &quot;wt&quot;:&quot;json&quot;,
+              &quot;rows&quot;:&quot;11&quot;}},
+              &quot;response&quot;:{&quot;numFound&quot;:29477,&quot;start&quot;:0,&quot;docs&quot;:[
+              {
+              &quot;geonameid&quot;:8347311,
+              &quot;name&quot;:&quot;Raparin&quot;,
+              &quot;asciiname&quot;:&quot;Raparin&quot;,
+              &quot;latitude&quot;:36.24254,
+              &quot;longitude&quot;:44.8828,
+              &quot;feature_class&quot;:&quot;R&quot;,
+              &quot;country_code&quot;:&quot;IQ&quot;,
+              &quot;population&quot;:4000,
+              &quot;_version_&quot;:1420981434598817807},</p>
+            </dd>
+          </dl><!-- /.apidoc -->
+
+        </div> <!-- /.help-api-geonames -->
+        <div id="help-api-geoserver" class="muted homebody" style="text-align:left;">
+         <h4>GeoServer</h4>
+         <p class="desc">The actual "geo server" we deploy is, well, <a href="http://geoserver.org/">GeoServer</a>, a famous, robust, open source project used widely in the GIS community. As such, most of GeoServer's out-of-the-box functionality (including the pre-cached material via the onboard <a href="http://geowebcache.org/">GeoWebCache</a> instance) is available for those who might want it. This would include WMS and WFS protocols as well as more recent features such as kml and GeoJSON streams.</p>
+         <p>A note about this, though? While all of our load testing came out ok, we do not have real-world proof that multiple clients drawing on data-intense procedures (think: uncached WMS, WFS) won't overload the modest VMs that run these servers. We reserve the right to witness these machines go down, which will encourage us to add muscle, as it were.</p>
+         <p>We will assume, at this point, that if GeoServer excites you, you'll know more or less what you're doing and simply need the service description (e.g. GetCapabilities) endpoints:</p>
+         <p>
+          <span>GWC (GeoWebCache)</span>
+          <ul class="flat">
+            <li>
+              <a class="external icon" href="http://libgeo:8080/geoserver/gwc/service/wms?SERVICE=WMS&VERSION=1.1.1&REQUEST=getcapabilities&TILED=true">
+                <span>WMS 1.1.1</span></a>
+              </li>
+              <li>
+                <a class="external icon" href="http://libgeo:8080/geoserver/gwc/service/wmts?REQUEST=getcapabilities">
+                  <span>WMTS 1.0.0</span></a>
+                </li>
+                <li>
+                  <a class="external icon" href="http://libgeo:8080/geoserver/gwc/service/tms/1.0.0">
+                    <span>TMS 1.0.0</span></a>
+                  </li>
+                </ul>
+              </li><li>
+              <span>WFS (GeoServer)</span>
+              <ul class="flat">
+                <li>
+                  <a class="external icon" href="http://libgeo:8080/geoserver/ows?service=wfs&amp;version=1.0.0&amp;request=GetCapabilities">
+                    <span>1.0.0</span></a>
+                  </li><li>
+                  <a class="external icon" href="http://libgeo:8080/geoserver/ows?service=wfs&amp;version=1.1.0&amp;request=GetCapabilities">
+                    <span>1.1.0</span></a>
+                  </li><li>
+                  <a class="external icon" href="http://libgeo:8080/geoserver/ows?service=wfs&amp;version=2.0.0&amp;request=GetCapabilities">
+                    <span>2.0.0</span></a>
+                  </li>
+                </ul>
+              </li><li>
+              <span>WMS</span>
+              <ul class="flat">
+                <li>
+                  <a class="external icon" href="http://libgeo:8080/geoserver/ows?service=wms&amp;version=1.1.1&amp;request=GetCapabilities">
+                    <span>1.1.1</span></a>
+                  </li><li>
+                  <a class="external icon" href="http://libgeo:8080/geoserver/ows?service=wms&amp;version=1.3.0&amp;request=GetCapabilities">
+                    <span>1.3.0</span></a>
+                  </li>
+                </ul>
+              </li>
+
+              <li class="selfclear">
+                <span>
+                </span></li><li>
+                <span>TMS</span>
+                <ul class="flat">
+                  <li>
+                    <a class="external icon" href="http://libgeo:8080/geoserver/gwc/service/tms/1.0.0">
+                      <span>1.0.0</span></a>
+                    </li>
+                  </ul>
+                </li><li>
+                <span>WMS-C</span>
+                <ul class="flat">
+                  <li>
+                    <a class="external icon" href="http://libgeo:8080/geoserver/gwc/service/wms?request=GetCapabilities&amp;version=1.1.1&amp;tiled=true">
+                      <span>1.1.1</span></a>
+                    </li>
+                  </ul>
+                </li><li>
+                <span>WMTS</span>
+                <ul class="flat">
+                  <li>
+                    <a class="external icon" href="http://libgeo:8080/geoserver/gwc/service/wmts?REQUEST=GetCapabilities">
+                      <span>1.0.0</span></a>
+                    </li>
+                  </ul>
+                </li>
+              </p>
+
+            </div> <!-- /.help-api-geoserver -->
+          </section><!-- /.help-api -->
+
+          <section class="" id="help-updates">
+            <h2>Updates</h2>
+            <div class="muted homebody" style="text-align:left;">
+              <h4>In-App Updates Visualization</h4>
+              <p>
+                <img src="images/leo-updates-envelopes.jpg" class="marketing-img img-polaroid pull-right span4">
+                A little context for our procedure: we receive a stream of DVDs, which together comprise each "series" available here. For example, what's represented here as "CIB 1" is actually many
+                <em>thousands</em>
+                of optical discs that we're stitching together for discovery and download. As discs arrive, they are processed individually (or in clusters) and added to the series. The new cluster will either extend the coverage of the series (that is,it covers an area not already available in the series) or will replace an extant block. To monitor these additions, use the Updates tab (e.g. for <a href="#updates/srtm01">SRTM01</a>). We will render there the bounding boxes of the individual clusters of data by the date they were made public.
+              </p>
+
+              <h4>RSS</h4>
+              <p>
+                Disc or sector updates are also announced via RSS,
+                <a href="../api/v1/rss/updates">here</a>. If you're interested in following only series-level updates, there's a quieter rss
+                <a href="../api/v1/rss/new">here</a>. And finally if you're interested more general news about the project (including upgrades to the web app, time-insensitive posts about the system's technology stack, downtime, and other developments), join or follow
+                <a href="https://c3.llan.ll.mit.edu/blogs/249650e6-9c85-498a-bd0d-59b7b602623a/?lang=en_us">our c3 community</a>.
+              </p>
+            </div>
+          </section>
+          <!-- /.help-updates -->
+
+          <section class="span12" id="help-credits">
+            <!-- we r fudging this section to stuff in lots of credits so we need to de-fudge some margins y padding -->
+            <h2 style="padding-left:50px;">Credits</h2>
+            <div class="muted homebody" style="text-align:left;">
+              <div class="credits-row row">
+                <div class="span4 pull-left">
+                  <img src="images/credits/logo-cloudmade.png" class="marketing-img img-circle pull-left" alt="CloudeMade logo" style="width:35px;height:35px;">
+                  <span style="color:black;"> <strong><a href="http://cloudmade.com">CloudMade</a></strong>
+                  </span>
+                  , a maker of location-based applications and services platforms and products, designed and tiled some of our beautiful basemaps.
+                </div>
+                <div class="span4 pull-left">
+                  <img src="images/credits/logo-mapquest.png" class="marketing-img pull-left" alt="MapQuest logo" style="width:35px;height:35px;">
+                  <span style="color:black;"> <strong>MapQuest</strong>
+                  </span>
+                  has lately embraced its
+                  <a href="http://developer.mapquest.com/web/products/open">MapQuest Open Data APIs and Services</a>
+                  efforts and the results are nice-looking
+                  <a href="http://openstreetmap.org">OpenStreetMap</a>
+                  -derived basemaps available for use anywhere. Including here.
+                </div>
+                <div class="span4 pull-left">
+                  <img src="images/credits/logo-stamen.png" class="marketing-img img-circle pull-left" alt="Stamen logo" style="width:35px;height:35px;">
+                  <span style="color:black;">
+                    <strong><a href="http://stamen.com/cartography">Stamen Design</a></strong>
+                  </span>
+                  , a datacentric design studio in San Francisco, created what is arguably our most beautiful basemap. The studio is responsible for both the Water Color and Toner basemaps, which are beautiful, artistic interpretations of (of course)
+                  <a href="http://openstreetmap.org">OpenStreetMap</a>
+                  data.
+                </div>
+              </div>
+              <div class="credits-row row">
+                <div class="span4 pull-left">
+                  <img src="http://b.tile3.opencyclemap.org/landscape/5/17/9.png" class="marketing-img img-circle pull-left" alt="OpenCycleMap logo" style="width:35px;height:35px;">
+                  <span style="color:black;">
+                    <strong>OpenCycleMap</strong>
+                  </span>
+                  is derived (again) from
+                  <a href="http://openstreetmap.org">OpenStreetMap.org</a>
+                  .
+                  <a href="http://opencyclemap.org/">OCM</a>
+                  designs some good-looking basemaps that at large scale focus on transportation but at small scale are nice, colorful maps of the world (more about OCM at
+                  <a href="http://www.thunderforest.com/">Thunderforest</a>
+                  .
+                </div>
+                <div class="span4 pull-left">
+                  <img src="images/credits/logo-leaflet.png" class="marketing-img img-circle pull-left" alt="leaflet logo" style="width:35px;height:35px;">
+                  <span style="color:black;">
+                    <strong>
+                      <a href="http://leafletjs.com/">Leaflet</a>
+                    </strong>
+                  </span>
+                  (by
+                  <a href="http://cloudmade.com">CloudMade</a>
+                  ) is an open source JavaScript library for delivering swift, beatiful maps through the web. Its clean, lightweight API makes it a good fit for delivering the different kinds of material that make up this application.
+                </div>
+                <div class="span4 pull-left">
+                  <img src="images/credits/logo-bootstrap.png" class="marketing-img pull-left" alt="bootstrap logo" style="width:35px;height:35px;">
+                  <span style="color:black;">
+                    <strong>
+                      <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap</a>
+                    </strong>
+                  </span>
+                  is a very popular front-end web framework that makes publishing web applications faster, simpler, and better-organized. Easy on the eyes, too.
+                </div>
+              </div>
+              <div class="credits-row row">
+                <div class="span4 pull-left">
+                  <img src="images/credits/logo-backbone.png" class="marketing-img pull-left" alt="backbone logo" style="width:35px;height:35px;">
+                  <span style="color:black;">
+                    <strong>
+                      <a href="http://backbonejs.org/">Backbone.js</a>
+                    </strong>
+                  </span>
+                  , by
+                  <a href="http://documentcloud.org">DocumentCloud</a>
+                  , is an MVC-ish JavaScript framework that helps web apps organize assets and methods and simplifies the management of interaction and functionality. Huh? Basically...it helps divest functions from the way the results of those functions are displayed.
+                </div>
+                <div class="span4 pull-left">
+                  <img src="images/credits/logo-jquery.png" class="marketing-img pull-left" alt="jquery logo" style="width:35px;height:35px;">
+                  <span style="color:black;">
+                    <strong>
+                      <a href="http://jquery.com/">jQuery</a>
+                    </strong>
+                  </span>
+                  is a small but very powerful wrapper around JavaScript that exposes the power of the language in a more succinct and easier-to-get-through API. As does everybody else, we extend jQuery with plugins like jQuery Cookie, jQuery FastLiveFilter, jQuery ScrollTo, and others.
+                </div>
+                <div class="span4 pull-left">
+                  <img src="images/credits/logo-grunt.png" class="marketing-img pull-left" alt="grunt logo" style="width:35px;height:35px;">
+                  <span style="color:black;">
+                    <strong>
+                      <a href="http://gruntjs.com">Grunt.js</a>
+                    </strong>
+                  </span>
+                  is a JavaScript "task runner" that we use to automate each move from source to distributable application. This mostly means it minifies and concats javascript, CSS files, html templates, etc.
+                </div>
+              </div>
+              <div class="credits-row row">
+                <div class="span4 pull-left">
+                  <img src="images/credits/logo-handlebars.png" class="marketing-img pull-left" alt="handlebars logo" style="width:35px;height:35px;">
+                  <span style="color:black;">
+                    <strong>
+                      <a href="http://handlebarsjs.com">Handlebars.js</a>
+                    </strong>
+                  </span>
+                  is a
+                  <a href="http://mustache.github.com/">Mustache</a>
+                  -compatible semantic templating engine we use to write structured html that we bind to various views and fragments in Backbone.
+                </div>
+                <div class="span4 pull-left">
+                  <img src="images/credits/logo-mongodb.png" class="marketing-img img-circle pull-left" alt="mongodb logo" style="width:35px;height:35px;">
+                  <span style="color:black;">
+                    <strong>
+                      <a href="http://www.mongodb.org/">MongoDB</a>
+                    </strong>
+                  </span>
+                  is an open source NoSQL database that is seeing rapid adoption due to its ease-of-use and scalability. MongoDB sits behind Slim and seeds all of our idle and runtime metadata functionality.
+                </div>
+                <div class="span4 pull-left">
+                  <img src="images/credits/logo-slimframework.png" class="marketing-img pull-left" alt="slim logo" style="width:35px;height:35px;">
+                  <span style="color:black;">
+                    <strong>
+                      <a href="http://slimframework.com">Slim Framework</a>
+                    </strong>
+                  </span>
+                  is a "micro" framework for PHP that eases the creation of typical API elements (routes, models, etc.) and does so cleanly. Slim powers the API that sits behind our web app.
+                </div>
+              </div>
+              <div class="credits-row row">
+                <div class="span4 pull-left">
+                  <img src="images/credits/logo-freebase.png" class="marketing-img pull-left" alt="freebase logo" style="width:35px;height:35px;">
+                  <span style="color:black;">
+                    <strong>
+                      <a href="http://freebase.com/">Freebase</a>
+                    </strong>
+                  </span>
+                  is an open data implement that endeavors to entity-graph the universe of information. Easy, right? We use it hear simply to offer predictive search of terms and locations, choosing Freebase specifically because it returns geojson polygons and points for locations it finds.
+                </div>
+                <div class="span4 pull-left">
+                  <img src="images/credits/logo-icomoon.png" class="marketing-img img-circle pull-left" alt="icomoon logo" style="width:35px;height:35px;">
+                  <span style="color:black;">
+                    <strong>
+                      <a href="http://icomoon.io/">IcoMoon</a>
+                    </strong>
+                  </span>
+                  is one of many recent entry into the world of icon fonts for web design. IcoMoon is particularly interesting in that it allows custom uploads of svg or other graphic that you can then incorporate into your own work as an icon.
+                </div>
+                <div class="span4 pull-left">
+                  <img src="images/credits/logo-nounproject.png" class="marketing-img pull-left" alt="noun project logo" style="width:35px;height:45px;">
+                  <span style="color:black;">
+                    <strong>
+                      <a href="http://thenounproject.com/">The Noun Project</a>
+                    </strong>
+                  </span>
+                  is an interesting, community-sourced project that endeavors to build and deliver a free "global visual language" using only graphic symbols. It also happens to be source of several of the icons at use here, including, of all things, the main logo and favico!
+                </div>
+              </div>
+              <div class="credits-row row">
+                <div class="span4 pull-left">
+                  <img src="images/credits/logo-d3.png" class="marketing-img img-circle pull-left" alt="d3 logo" style="width:35px;height:35px;">
+                  <span style="color:black;">
+                    <strong>
+                      <a href="http://d3js.org/">D3.js</a>
+                    </strong>
+                  </span>
+                  is a JavaScript library for manipulating documents based on data. In the initial release of this application we use it only for the little chart that updates the progress of a download series.
+                </div>
+                <div class="span4 pull-left">
+                  <img src="images/credits/logo-postgis.png" class="marketing-img pull-left" alt="postgis logo" style="width:35px;height:35px;">
+                  <span style="color:black;">
+                    <strong>
+                      <a href="http://postgis.refractions.net/">PostGIS</a>
+                    </strong>
+                  </span>
+                  adivs robust geographic data support to the
+                  <a href="http://www.postgresql.org/">PostgreSQL</a>
+                  database system. PostGIS stores all of our vector data and provides various query/formatting services for the API that powers the bulk of this site (as well as some of our background processing workflows).
+                </div>
+                <div class="span4 pull-left">
+                  <img src="images/credits/logo-gdal.png" class="marketing-img pull-left" alt="gdal logo" style="width:35px;height:35px;">
+                  <span style="color:black;">
+                    <strong>
+                      <a href="http://gdal.org/">GDAL</a>
+                      and
+                      <a href="http://gdal.org/ogr/index.html">OGR</a>
+                    </strong>
+                  </span>
+                  are very agile, powerful spatial data processing libraries whose data interrogations and manipulation capabilities make most of our work possible.
+                </div>
+              </div>
+              <div class="credits-row row">
+                <div class="span4 pull-left">
+                  <img src="images/credits/logo-geoserver.png" class="marketing-img pull-left" alt="geoserver logo" style="width:35px;height:35px;">
+                  <span style="color:black;">
+                    <strong>
+                      <a href="http://geoserver.org">GeoServer</a>
+                    </strong>
+                  </span>
+                  , one of the great open source projects, is a robust, standards-compliant spatial data server that delivers most of our data to the web map as well as some of the downloads themselves. GeoServer integrates with
+                  <a href="http://geowebcache.org/">GeoWebcache</a>
+                  , which generates the tiles we send to the browser (in lieu of, say, GB-sized tiffs).
+                </div>
+                <div class="span4 pull-left">
+                  <img src="images/credits/logo-solr.png" class="marketing-img img-circle pull-left" alt="solr logo" style="width:35px;height:35px;">
+                  <span style="color:black;">
+                    <strong>
+                      <a href="http://lucene.apache.org/solr/">Apache Solr</a>
+                    </strong>
+                  </span>
+                  is an indexer/search engine that powers a couple of pieces of this project. Solr has very robust and agile syntax and tuning capabilities, and we will always be monitoring the quality of the search of our metadata.
+                </div>
+                <div class="span4 pull-left">
+                  <img src="images/credits/logo-geonames.png" class="marketing-img img-circle pull-left" alt="geonames logo" style="width:35px;height:35px;">
+                  Speaking of Solr,
+                  <span style="color:black;">
+                    <strong>
+                      <a href="http://www.geonames.org/">GeoNames</a>
+                    </strong>
+                  </span>
+                  maintains and publishes a vast database of authoritative geographic names. It's a gazetteer, basically, that happens to also allow bulk downloads of the data in order for developers (like us) to repurpose the data to better suit our needs. We use GeoNames as a backup placename search (if Freebase fails to return a usable result), but in so doing we just happen to be running a local geonames service that could feasibly be used labwide.
+                  Contact us if you're interested.
+                </div>
+              </div>
+              <div class="credits-row row">
+                <div class="span4 pull-left">
+                  <img src="images/credits/logo-opengeoportal.png" class="marketing-img img-circle pull-left" alt="opengeoportal logo" style="width:35px;height:35px;">
+                  <span style="color:black;">
+                    <strong>
+                      <a href="http://opengeoportal.org">OpenGeoPortal</a>
+                    </strong>
+                  </span>
+                  is a commendable collaboration between a number of institutions that endeavors to develop and implement a shared geospatial information portal. Although we found it to not meet our requirements here (hence the custom-built application you see before you), we did borrow a fragment of Solr search query syntax from the project and we are happy to credit that group for same.
+                </div>
+                <div class="span4 pull-left">
+                  <img src="images/credits/logo-editor-sublime.png" class="marketing-img img-circle pull-left" alt="sublime text logo" style="width:35px;height:35px;">
+                  <span style="color:black;">
+                    <strong>
+                      <a href="http://www.sublimetext.com/">Sublime Text 3</a>
+                    </strong>
+                  </span>
+                  is a killer text editor. Not that you <em>must</em> care how we coded this thing, but Sublime (and the other two editors to follow) were all quite vital to the project and should get some love :-)
+                </div>                    <div class="span4 pull-left">
+                <img src="images/credits/logo-editor-textwrangler.png" class="marketing-img img-circle pull-left" alt="textwrangler text logo" style="width:35px;height:35px;">
+                <span style="color:black;">
+                  <strong>
+                    <a href="http://www.barebones.com/products/textwrangler/">TextWrangler</a>
+                  </strong>
+                </span>
+                is a very utilitarian text editor from BareBones. Useful less as an immersive code editor than as an efficient manipulator, `diff`er, etc.
+              </div>
+            </div><!-- /.row -->
+
+            <div class="credits-row row">
+              <div class="span4 pull-left">
+                <img src="images/credits/logo-editor-atom.png" class="marketing-img img-circle pull-left" alt="atom logo" style="width:35px;height:35px;">
+                <span style="color:black;">
+                  <strong>
+                    <a href="http://atom.io">Atom (from GitHub)</a>
+                  </strong>
+                </span>
+                is very recent to the scene but with tons of promise. A project from GitHub, this pretty clearly sets Sublime Text as its jumping-off point.
+              </div>
+            </div><!-- /.row -->
+
+          </div>
+        </section>
+        <!-- /.help-credits --> </div>
+      </div>

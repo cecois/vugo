@@ -1,0 +1,69 @@
+var __ = require("underscore");
+var jsonfile = require('jsonfile')
+var file = '/tmp/js.json'
+var incoming = require('./data-gov.json');
+var formats_to_keep = require('./formats.json');
+var keeps = [];
+var dsets = __.each(incoming.result.results,function(r){
+
+return r.type=="dataset"
+
+// 	if(r.type=="dataset" && fkeep == true ){
+
+// 		return r;
+// }	
+});
+
+/* ---------------------------------------------------- */
+
+var institution = "Some Lucky Place"
+
+
+__.each(dsets,function(t){
+
+// 	var formats = __.each(t.resources,function(r){
+// console.log(r.format)
+// return r.format;
+// 			})
+
+var fkeep = 0;
+
+__.each(t.resources,function(rr){
+
+fkeep = __.find(formats_to_keep, function(f){ 
+	return f.format == "CSV"; 
+});
+
+});
+
+
+if(fkeep !== 'undefined'){
+// var format = __.each(t.resources,function(rr){
+
+// 	// console.log(rr.format)
+// // var fkeep = __.contains(formats_to_keep, "CSV");
+// 	return "good format"
+
+// })
+
+// }
+	// var formatstring = formats.join()
+// if(fkeep==1 || fkeep == true){
+	var keep = {
+							"id":t.id,
+							"title": t.title,
+							"ctrlnum":t.license_url
+							,
+							"format":fkeep.format
+	}
+	keeps.push(keep)
+} //fkeep test
+});
+
+ 
+ 
+/* ---------------------------------------------------- */
+
+  jsonfile.writeFile(file, keeps, function (err) {
+	    console.error(err)
+  })

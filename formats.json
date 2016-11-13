@@ -1,0 +1,309 @@
+[
+      {
+    "format": ".shp",
+    "note": "some gloss on this format for use in processing"
+  },
+  {
+    "format": "accdb"
+  },
+  {
+    "format": "amazon cloud"
+  },
+  {
+    "format": "api"
+  },
+  {
+    "format": "arc export"
+  },
+  {
+    "format": "arc/info"
+  },
+  {
+    "format": "arcgis feature service"
+  },
+  {
+    "format": "arcgis geodatabase file"
+  },
+  {
+    "format": "ArcGIS Map Service"
+  },
+  {
+    "format": "arcgis online web map, esri arcgis map service"
+  },
+  {
+    "format": "arcgis online web map, esri arcgis server map service"
+  },
+  {
+    "format": "arcgis server soap interface"
+  },
+  {
+    "format": "arcgrid"
+  },
+  {
+    "format": "arcinfo workstation grid"
+  },
+  {
+    "format": "arcrest"
+  },
+  {
+    "format": "ascii"
+  },
+  {
+    "format": "ascii and las files"
+  },
+  {
+    "format": "ascii file"
+  },
+  {
+    "format": "ascii xyz"
+  },
+  {
+    "format": "binary data file"
+  },
+  {
+    "format": "binary float"
+  },
+  {
+    "format": "bison web services"
+  },
+  {
+    "format": "CSV"
+  },
+  {
+    "format": "csw"
+  },
+  {
+    "format": "download"
+  },
+  {
+    "format": "download index"
+  },
+  {
+    "format": "e00"
+  },
+  {
+    "format": "erdas compressed wavelets (ecw)"
+  },
+  {
+    "format": "esri arc ascii"
+  },
+  {
+    "format": "esri coverage"
+  },
+  {
+    "format": "esri geodatabase feature class"
+  },
+  {
+    "format": "esri grid"
+  },
+  {
+    "format": "esri grid 32 bit floating point"
+  },
+  {
+    "format": "esri grid file download"
+  },
+  {
+    "format": "esri map service soap endpoint (wsdl)"
+  },
+  {
+    "format": "Esri REST"
+  },
+  {
+    "format": "esri shapefile"
+  },
+  {
+    "format": "esri shapefile (.shp)"
+  },
+  {
+    "format": "esri web mapping application"
+  },
+  {
+    "format": "Excel"
+  },
+  {
+    "format": "export"
+  },
+  {
+    "format": "fema-dcs-terrain"
+  },
+  {
+    "format": "filegdb"
+  },
+  {
+    "format": "geojson"
+  },
+  {
+    "format": "geopdf"
+  },
+  {
+    "format": "geotiff"
+  },
+  {
+    "format": "gis shape file"
+  },
+  {
+    "format": "gml"
+  },
+  {
+    "format": "great lakes bathymetric contours shapefile format"
+  },
+  {
+    "format": "grib"
+  },
+  {
+    "format": "gridfloat"
+  },
+  {
+    "format": "hdf"
+  },
+  {
+    "format": "hierarchical data format (hdf)"
+  },
+  {
+    "format": "img"
+  },
+  {
+    "format": "itis web services"
+  },
+  {
+    "format": "iwxmm-us"
+  },
+  {
+    "format": "JPEG"
+  },
+  {
+    "format": "JPG"
+  },
+  {
+    "format": "JSON"
+  },
+  {
+    "format": "KML"
+  },
+  {
+    "format": "KMZ"
+  },
+  {
+    "format": "las"
+  },
+  {
+    "format": "mapinfo interchange file (mif)"
+  },
+  {
+    "format": "mif"
+  },
+  {
+    "format": "MrSID"
+  },
+  {
+    "format": "n/a"
+  },
+  {
+    "format": "NetCDF"
+  },
+  {
+    "format": "oai-pmh"
+  },
+  {
+    "format": "opendap"
+  },
+  {
+    "format": "openxml"
+  },
+  {
+    "format": "originator data format"
+  },
+  {
+    "format": "other"
+  },
+  {
+    "format": "padus gap status layer web service:"
+  },
+  {
+    "format": "PNG"
+  },
+  {
+    "format": "point vector"
+  },
+  {
+    "format": "raster digital data set"
+  },
+  {
+    "format": "raw instrument files(.raw, .wcd)"
+  },
+  {
+    "format": "seabass"
+  },
+  {
+    "format": "shape file"
+  },
+  {
+    "format": "shapefile"
+  },
+  {
+    "format": "shapefile or file geodatabase"
+  },
+  {
+    "format": "shp"
+  },
+  {
+    "format": "tabular and digital data"
+  },
+  {
+    "format": "TAR"
+  },
+  {
+    "format": "TEXT"
+  },
+  {
+    "format": "tgrshp"
+  },
+  {
+    "format": "tgrshp (compressed)"
+  },
+  {
+    "format": "tgrshp(compressed)"
+  },
+  {
+    "format": "TIFF"
+  },
+  {
+    "format": "tiff and gridded binary"
+  },
+  {
+    "format": "TXT"
+  },
+  {
+    "format": "user selects download format"
+  },
+  {
+    "format": "user-defined"
+  },
+  {
+    "format": "usgs_doq"
+  },
+  {
+    "format": "vector"
+  },
+  {
+    "format": "waf"
+  },
+  {
+    "format": "WCS"
+  },
+  {
+    "format": "WFS"
+  },
+  {
+    "format": "winzipped file geodatabase"
+  },
+  {
+    "format": "WMS"
+  },
+  {
+    "format": "ZIP"
+  },
+  {
+    "format": "XML"
+  }
+]
