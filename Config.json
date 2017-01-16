@@ -1,0 +1,8 @@
+{
+	"SOLRROOT": "http://localhost:8989/solr/#/biblio/",
+	"CARTO_USER": "cecmcgee",
+	"MODE": "bus",
+	"VFROOT": "http://localhost/ogsdc",
+	"VFINSTITUTION":"Some Lucky Joint",
+	"VFCOLLECTION":"Our Cuckoo Nutty Spatial Data Collection"
+}

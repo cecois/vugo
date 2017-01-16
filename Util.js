@@ -2,6 +2,9 @@ var __ = require("underscore");
 var TURF = require("turf");
 var GJH = require("geojsonhint");
 
+var Translations = require('./Translations.json')
+var Config = require('./Config.json')
+
 
 var method = Util.prototype;
 
@@ -16,6 +19,41 @@ method.escape = function(text) {
 method.getAge = function() {
 	return this._age;
 };
+
+method.gen_carto = function(v){
+
+	var d={}
+
+	/* ------------------- id */
+	d._id=(typeof v.id!=='undefined')?v.id:null;
+
+	/* ------------------- statics */
+	d.institution=(typeof Config.VFINSTITUTION!=='undefined')?[Config.VFINSTITUTION]:null;
+	d.collection=(typeof Config.VFCOLLECTION!=='undefined')?[Config.VFCOLLECTION]:null;
+	d.geo_source="carto";
+
+	/* ------------------- title and other possibly-translated fields */
+	// is there a Translation entry for this record -- currently keyed on title (which is unique [?] in carto)
+	var T = __.findWhere(Translations,{titleog:v.name});
+
+	d.title = (typeof v.display_name !== 'undefined' && v.display_tname!== null)?v.display_name:v.description;
+
+
+// if Translation override
+if(T){
+	if(typeof T.display_title !== 'undefined')
+	{
+		d.title = T.display_title;	
+	} 
+	d.description = (typeof T.description !== 'undefined')?T.description:v.description;
+}
+/* ------------------- durl and other straight-up incomings */
+d.url=(typeof v.id!=='undefined')?Config.VFROOT+"/id:"+v.id:null;
+d.formats=(typeof v.table!=='undefined' && typeof v.table.geometry_types!=='undefined')?v.table.geometry_types:null;
+
+return d
+
+}
 
 method.is_this_geojson = function(g){
 	var is=0
@@ -106,7 +144,7 @@ method.is_this_prose = function(g){
 
 			method.get_render_type_datagov = function(fmta){
 
-				var formats_can_render=["wms","geojson","gml","json","arcgis feature service","arcgis map preview","arcgis map service","arcgis online web map, esri arcgis map service","arcgis online web map, esri arcgis server map service","arcgis server soap interface","arcrest","esri map service soap endpoint (wsdl)","esri rest","esri web mapping application","kml","kmz","wcs","wfs","xml"];
+				var formats_can_render=["wms","geojson","gml","json","arcgis feature service","arcgis map preview","arcgis map service","arcgis online web map, esri arcgis map service","arcgis online web map, esri arcgis server map service","arcgis server soap interface","arcrest","esri map service soap endpoint (wsdl)","esri rest","esri web mapping application","kml","kmz","wcs","wfs"];
 				var tfak = null
 				var tfa = [];
 
@@ -220,7 +258,7 @@ method.get_temporal_datagov = function(which,t){
 } // get_temporal
 
 /* sniff out [and convert] a geojson-formatted bbox from an extras block */ 
-method.get_bbox_datagov = function(t){
+method.get_bbox_datagovOG = function(t,w){
 
 	var E = t.extras
 
@@ -249,8 +287,24 @@ method.get_bbox_datagov = function(t){
 		} else if(typeof bwl !== 'undefined' && typeof bsl !== 'undefined' && typeof bel !== 'undefined' && typeof bnl !== 'undefined')
 		{
 
-			var bb = [bwl.value,bsl.value,bel.value,bnl.value];
-			return method.bbox2geojson(bb)
+		//	var bb = [bwl.value,bsl.value,bel.value,bnl.value];
+		//	return method.bbox2geojson(bb)
+		switch(w){
+			case "n":
+			return bn1.value;
+			break;
+			case "s":
+			return bs1.value;
+			break;
+			case "e":
+			return be1.value;
+			break;
+			case "w":
+			return bw1.value;
+			break;
+			default:
+			return null
+		}
 
 } //if bbox-<dir>-<ll> 
 else
@@ -280,6 +334,46 @@ else
 // failing that check individual keys for separated corner coords
 
 // 
+
+
+}
+
+method.get_bbox_datagov = function(t,w){
+
+	var E = t.extras
+
+	var esp = __.findWhere(E,{key:"spatial"})
+
+	var bwl = __.findWhere(E,{key:"bbox-west-long"});
+	var bsl = __.findWhere(E,{key:"bbox-south-lat"});
+	var bel = __.findWhere(E,{key:"bbox-east-long"});
+	var bnl = __.findWhere(E,{key:"bbox-north-lat"});
+
+	if(E !== 'undefined'){
+
+		switch(w){
+			case "w":
+			return (typeof bwl!=='undefined')?parseFloat(bwl.value):null;
+			break;
+			case "s":
+			return (typeof bsl!=='undefined')?parseFloat(bsl.value):null;
+			break;
+			case "e":
+			return (typeof bel!=='undefined')?parseFloat(bel.value):null;
+			break;
+			case "n":
+			return (typeof bnl!=='undefined')?parseFloat(bnl.value):null;
+			break;
+			default:
+			return null
+		}
+
+} //if E
+else
+{
+
+	return "no spatial key or bbox-<dir>-<ll> in meta"
+}
 
 
 }

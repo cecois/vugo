@@ -1,0 +1,15 @@
+[{
+	"titleog":"spatialtrack_line",
+	"dipsplay_name":"Spatial Track: Line Features"
+},{
+	"titleog":"spatialtrack_point",
+	"dipsplay_name":"Spatial Track: Point Features"
+},{
+	"titleog":"spatialtrack_poly",
+	"dipsplay_name":"Spatial Track: Polygon Features"
+},
+{
+	"titleog":"ny_firebattalions",
+	"dipsplay_name":"Fire Battalions of New York City"
+}
+]
