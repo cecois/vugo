@@ -28,11 +28,25 @@ method.gen_carto = function(v){
 	d._id=(typeof v.id!=='undefined')?v.id:null;
 
 	/* ------------------- statics */
+	d.geo_source="carto"
+	d.geo_render_type="carto"
+	d.geo_render_url="https://"+Config.CARTO_USER+".carto.com/tables/"+v.name
+	// same: will they ever differ? #returnto
+	d.ogslug="https://"+Config.CARTO_USER+".carto.com/tables/"+v.name
 	d.institution=(typeof Config.VFINSTITUTION!=='undefined')?[Config.VFINSTITUTION]:null;
 	d.collection=(typeof Config.VFCOLLECTION!=='undefined')?[Config.VFCOLLECTION]:null;
 	d.geo_source="carto";
 
-	/* ------------------- title and other possibly-translated fields */
+	/* ------------------- envelope/bbox/etc. 
+
+var BB = this.pull_envelope(d.geo_render_url);
+d.bbox_west = BB.west
+d.bbox_south = BB.south
+d.bbox_east = BB.east
+d.bbox_north = BB.west
+*/
+
+/* ------------------- title and other possibly-translated fields */
 	// is there a Translation entry for this record -- currently keyed on title (which is unique [?] in carto)
 	var T = __.findWhere(Translations,{titleog:v.name});
 
@@ -49,10 +63,60 @@ if(T){
 }
 /* ------------------- durl and other straight-up incomings */
 d.url=(typeof v.id!=='undefined')?Config.VFROOT+"/id:"+v.id:null;
-d.formats=(typeof v.table!=='undefined' && typeof v.table.geometry_types!=='undefined')?v.table.geometry_types:null;
+
+d.formats=null;
+if(typeof v.table!=='undefined' && typeof v.table.geometry_types!=='undefined')
+	{d.formats=v.table.geometry_types}
+else if(typeof v.external_source !== 'undefined' && v.external_source.geometry_types!=='undefined'){
+	d.formats=v.external_source.geometry_types
+}
+
+if(d.formats !== null){
+	d.format_classes=this.format_classify(d.formats);
+}
+
+
+/* ------------------- authors and publishers */
+
+d.authors=[];
+if(typeof v.attributions!=='undefined'){
+	d.authors=v.attributions;
+} else if(typeof v.source !== 'undefined' && v.source.length>0){
+	d.authors = v.source;
+}
+
+d.publishers=[];
+if(typeof v.source!=='undefined'){
+	d.publishers=v.source;
+} else if(typeof v.attributions !== 'undefined' && v.attributions.length>0){
+	d.publishers = v.attributions;
+}
+
+
 
 return d
 
+}
+
+method.format_classify = function(fs){
+
+
+
+	var classes = []
+	__.each(fs,function(f,i){
+
+		// var F = null;
+
+		
+		var F = (__.contains(Config.VECTORS,f))?"vector":null;
+
+
+		classes.push(F)
+
+
+	})
+
+	return __.unique(classes)
 }
 
 method.is_this_geojson = function(g){

@@ -14,6 +14,7 @@ var file = '/tmp/harvest.carto.json'
 var Config = require('./Config.json');
 
 
+
 // replace this with call to carto
 // var incoming = require('./data-gov.json');
 
@@ -76,31 +77,10 @@ else {
 
 }
 
+
 console.log("Ds:")
-console.log(Ds)
+console.log(Ds);
 
-/* 
-var dsets = __.filter(incoming.result.results, function(r){
-
-// a dummy for incrementing
-var formats_keep=0
-// if there are resources blocks
-if(r.resources.length>0){
-	__.each(r.resources,function(rr){
-		// ...do any of their formats jibe w/ what we say we wanna keep in formats.json?
-		if(__.findIndex(formats_to_keep, function(ftk){return ftk.format == rr.format})>=0){
-			// oh, yes? ok we increment our counter - later we'll actually pull the format values
-			formats_keep++
-		}
-	})
-}
-
-// if it's both a dataset and one of the formats we wanna keep, it stays
-return (r.type=="dataset" && formats_keep>0);
-
-});
-
-*/
 
 /* -------------------------- frankenstein together documents from the pieces you've gathered 
 
