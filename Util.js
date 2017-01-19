@@ -44,7 +44,7 @@ d.bbox_west = BB.west
 d.bbox_south = BB.south
 d.bbox_east = BB.east
 d.bbox_north = BB.west
-*/
+me*/
 
 /* ------------------- title and other possibly-translated fields */
 	// is there a Translation entry for this record -- currently keyed on title (which is unique [?] in carto)
