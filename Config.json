@@ -1,5 +1,5 @@
 {
-	"MODE": "bus",
+	"MODE": "apt",
 	"SOLRROOT": "http://localhost:8989/solr/#/biblio/",
 	"CARTO_USER": "cecmcgee",
 	"VFROOT": "http://localhost/ogsdc",

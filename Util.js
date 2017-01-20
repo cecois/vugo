@@ -1,10 +1,12 @@
 var __ = require("underscore");
 var TURF = require("turf");
 var GJH = require("geojsonhint");
+var request = require('request');
 
 var Translations = require('./Translations.json')
 var Config = require('./Config.json')
-
+var CARTODB = require('cartodb');
+ 
 
 var method = Util.prototype;
 
@@ -37,14 +39,6 @@ method.gen_carto = function(v){
 	d.collection=(typeof Config.VFCOLLECTION!=='undefined')?[Config.VFCOLLECTION]:null;
 	d.geo_source="carto";
 
-	/* ------------------- envelope/bbox/etc. 
-
-var BB = this.pull_envelope(d.geo_render_url);
-d.bbox_west = BB.west
-d.bbox_south = BB.south
-d.bbox_east = BB.east
-d.bbox_north = BB.west
-me*/
 
 /* ------------------- title and other possibly-translated fields */
 	// is there a Translation entry for this record -- currently keyed on title (which is unique [?] in carto)
@@ -91,6 +85,29 @@ if(typeof v.source!=='undefined'){
 } else if(typeof v.attributions !== 'undefined' && v.attributions.length>0){
 	d.publisher = v.attributions;
 }
+
+	/* ------------------- envelope/bbox/etc. 
+*/
+// https://{username}.carto.com/api/v2/sql?q=SELECT count(*) FROM {table_name}
+
+var u = "https://"+Config.CARTO_USER+".carto.com/api/v2/sql?q=SELECT count(*) FROM "+v.name
+// console.log(u)
+request(u, function (error, response, body) {
+    if (!error && response.statusCode == 200) {
+      // from within the callback, write data to response, essentially returning it.
+      // res.send(body);
+     
+var bbx = JSON.parse(body)
+     console.log("100 count:");
+console.log(bbx.rows);
+    }
+  })
+
+// var BB = this.pull_envelope(d.geo_render_url);
+// d.bbox_west = BB.west
+// d.bbox_south = BB.south
+// d.bbox_east = BB.east
+// d.bbox_north = BB.west
 
 
 

@@ -13,15 +13,6 @@ var jsonfile = require('jsonfile')
 var file = '/tmp/harvest.carto.json'
 var Config = require('./Config.json');
 
-
-
-// replace this with call to carto
-// var incoming = require('./data-gov.json');
-
-// var formats_to_keep = require('./formats.json');
-// var globals = require('./globals.json');
-// var keeps = [];
-
 /* --------------------------------------------------------- carto
 // get all user tables .json
 // https://cecmcgee.carto.com/api/v2/sql?q=SELECT%20CDB_UserTables(%27all%27)
@@ -81,86 +72,4 @@ else {
 console.log("Ds:")
 console.log(Ds);
 
-
-/* -------------------------- frankenstein together documents from the pieces you've gathered 
-
-__.each(dsets,function(t){
-
-// if there's no id we can't use it anyway - expect this case to never be true, tho
-if(typeof t.id !== 'undefined'){
-
-	var fmtao = __.uniq(__.filter(__.pluck(t.resources,'format'),function(f){return f!=='';}));
-	var fmta = __.map(fmtao,function(fo){return fo.toLowerCase()});
-	var grt = U.get_render_type_datagov(fmta);
-
-	var gru = (grt !== null)?U.get_render_url_datagov(t,grt):null;
-	-------------------------- */
-
-	// var keep = {
-		/* -------------------------- default vufind fields 
-		-------------------------- */
-		// "_id":t.id,
-		// "url":globals.spatial_portal_prefix+t.id,
-		// "title": t.title,
-		// "ctrlnum":t.license_url,
-		// "institution":globals.institution,
-		// "collection":globals.collection,
-		// "format":fmta,
-		// "author":t.organization.title_full,
-		// "publisher":U.get_publisher_datagov(t),
-		// "description":t.notes,
-
-		
-		// "_id":"c0",
-		// "url":globals.spatial_portal_prefix+"c0",
-		// "title": "DUMMY Carto Tester",
-		// "institution":globals.institution,
-		// "collection":globals.collection,
-		// "format":"carto poly",
-		// "author":"personal",
-		// "publisher":"some dude",
-		// "description":"carto desc field will go here",
-		/* -------------------------- custom vufind fields 
-														"geo_source":"carto",
-							"bbox_west": U.get_bbox_datagov(t,"w"),
-							"bbox_south": U.get_bbox_datagov(t,"s"),
-							"bbox_east": U.get_bbox_datagov(t,"e"),
-							"bbox_north": U.get_bbox_datagov(t,"n"),
-							"temporal_begin":U.get_temporal_datagov("begin",t),
-							"temporal_end":U.get_temporal_datagov("end",t),
-							"publishDate":U.get_publishdate_datagov(t),
-							"thumbnail":U.get_thumb_datagov(t),
-							"geo_render_type":grt,
-							"geo_render_url":gru,
-							"ogslug":"https://catalog.data.gov/dataset/"+t.name
-							-------------------------- */
-
-						// 	"geo_source":"carto",
-						// 	"bbox_west": -149.769077,
-						// 	"bbox_south": -37.7572999,
-						// 	"bbox_east": 144.9829127,
-						// 	"bbox_north": 63.86834844,
-						// 	"geo_render_type":"carto",
-						// 	"geo_render_url":"https://cecmcgee.carto.com/tables/spatialtrack_poly",
-						// 	"ogslug":"https://cecmcgee.carto.com/tables/spatialtrack_poly"
-						// }
-						// keeps.push(keep)
-					// }
-					// }
-					// );
-
-/* ---------------------------------------------------- 
-
-__.each(keeps,function(k){
-	jsonfile.writeFile('/tmp/js-jsons/'+k._id+'.json',k,function(err){
-		console.error(err)
-	})
-})
-
-*/
-
-
-// jsonfile.writeFile(file, keeps, function (err) {
-// 	console.error(err)
-// });
 
