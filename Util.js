@@ -85,11 +85,11 @@ if(typeof v.attributions!=='undefined'){
 	d.authors = v.source;
 }
 
-d.publishers=[];
+d.publisher=[];
 if(typeof v.source!=='undefined'){
-	d.publishers=v.source;
+	d.publisher=v.source;
 } else if(typeof v.attributions !== 'undefined' && v.attributions.length>0){
-	d.publishers = v.attributions;
+	d.publisher = v.attributions;
 }
 
 
