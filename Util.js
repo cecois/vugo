@@ -90,7 +90,7 @@ if(typeof v.source!=='undefined'){
 */
 // https://{username}.carto.com/api/v2/sql?q=SELECT count(*) FROM {table_name}
 
-var u = "https://"+Config.CARTO_USER+".carto.com/api/v2/sql?q=SELECT count(*) FROM "+v.name
+var u = "https://"+Config.CARTO_USER+".carto.com/api/v2/sql?q=SELECT st_extent(the_geom) as bbox FROM "+v.name
 // console.log(u)
 request(u, function (error, response, body) {
     if (!error && response.statusCode == 200) {
