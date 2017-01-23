@@ -113,6 +113,8 @@
        <field name="geo_render_type" type="string" indexed="true" stored="true"/>
        <field name="geo_render_url" type="string" indexed="false" stored="true"/>
        <field name="ogslug" type="string" indexed="false" stored="true"/>
+       <field name="table" type="string" indexed="true" stored="true"/>
+       <field name="format_classes" type="string" indexed="false" stored="true" multiValued="true" />
 
        <!-- Core Fields  -->
        <field name="_id" type="string" indexed="true" stored="true"/>
@@ -130,8 +132,8 @@
        <field name="building" type="string" indexed="true" stored="true" multiValued="true"/>
        <!-- Generic Fields -->
        <field name="language" type="string" indexed="true" stored="true" multiValued="true"/>
-       <field name="formats" type="string" indexed="true" stored="true" multiValued="true"/>
-       <field name="authors" type="textProper" indexed="true" stored="true" multiValued="true" termVectors="true"/>
+       <field name="format" type="string" indexed="true" stored="true" multiValued="true"/>
+       <field name="author" type="textProper" indexed="true" stored="true" multiValued="true" termVectors="true"/>
        <field name="author_variant" type="text" indexed="true" stored="true" multiValued="true" termVectors="true"/>
        <field name="author_role" type="string" indexed="true" stored="true" multiValued="true"/>
        <field name="author_facet" type="textFacet" indexed="true" stored="false" multiValued="true"/>
@@ -145,7 +147,7 @@
        <field name="title_fullStr" type="string" indexed="true" stored="true"/>
        <field name="title_auth" type="text" indexed="true" stored="true"/>
        <field name="physical" type="string" indexed="true" stored="true" multiValued="true"/>
-       <field name="publishers" type="textProper" indexed="true" stored="true" multiValued="true"/>
+       <field name="publisher" type="textProper" indexed="true" stored="true" multiValued="true"/>
        <field name="publisherStr" type="string" indexed="true" stored="false" multiValued="true"/>
        <field name="publishDate" type="string" indexed="true" stored="true" multiValued="true"/>
        <field name="publishDateSort" type="string" indexed="true" stored="false"/>

@@ -1,17 +1,19 @@
 var __ = require("underscore");
-var turf = require("turf");
+var TURF = require("turf");
+var REQUEST = require('request');
+var ASYNC = require('async');
+
+var Config = require('./Config.json');
 var Util = require("./Util.js");
 var U = new Util();
 
 // We need this to build our post string
 //var querystring = require('querystring');
-var request = require('request');
 //var http = require('http');
-var fs = require('fs');
+var FS = require('fs');
 
-var jsonfile = require('jsonfile')
+var JSONFILE = require('jsonfile')
 var file = '/tmp/harvest.carto.json'
-var Config = require('./Config.json');
 
 /* --------------------------------------------------------- carto
 // get all user tables .json
@@ -33,43 +35,71 @@ sql.getBounds('select * from table').done(function(bounds) {
 
 var Ds=[]
 
+ASYNC.waterfall([
+    function(CB) {
+
 if(Config.MODE!=="bus")
-	{request('https://'+Config.CARTO_USER+'.carto.com/api/v1/viz/?tag_name=&q=&page=1&type=&exclude_shared=false&per_page=20&tags=&shared=yes&locked=null&only_liked=null&order=updated_at&types=table%2Cremote&deepInsights=false', function (error, response, body) {
+	{
+
+	console.log("F1")
+	console.log("running from live network data!")
+		
+		REQUEST('https://'+Config.CARTO_USER+'.carto.com/api/v1/viz/?tag_name=&q=&page=1&type=&exclude_shared=false&per_page=20&tags=&shared=yes&locked=null&only_liked=null&order=updated_at&types=table%2Cremote&deepInsights=false', function (error, response, body) {
 		if (!error && response.statusCode == 200) {
 
 			var carto_raw = JSON.parse(body);
 
-			// fs.writeFile('/tmp/n.carto.body.txt', body, function (err) {if (err) return console.log(err);});
-			// fs.writeFile('/tmp/n.carto.jsonparse.txt', JSON.parse(body), function (err) {if (err) return console.log(err);});
+			// FS.writeFile('/tmp/n.carto.body.txt', body, function (err) {if (err) return console.log(err);});
+			// FS.writeFile('/tmp/n.carto.jsonparse.txt', JSON.parse(body), function (err) {if (err) return console.log(err);});
 			__.each(carto_raw.visualizations,function(V){
 
-
+console.log("pushing this V into Ds:")
+console.log(V.table.name);
 				Ds.push(U.gen_carto(V))
 
 			})
+			return CB()
 		}
 	})
 } //mode check
 else {
 
+	console.log("F2")
 	console.log("running from static offline copy...")
 
 	// var carto_raw = require('./carto.fake.json')
 	var carto_raw = JSON.parse(fs.readFileSync('carto.fake.json', 'utf8'));
 	// var carto = carto_raw;
 
-	// fs.writeFile('/tmp/n.local.body.txt', carto_raw, function (err) {if (err) return console.log(err);});
-	// fs.writeFile('/tmp/n.local.jsonparse.txt', JSON.parse(carto_raw), function (err) {if (err) return console.log(err);});
+	// FS.writeFile('/tmp/n.local.body.txt', carto_raw, function (err) {if (err) return console.log(err);});
+	// FS.writeFile('/tmp/n.local.jsonparse.txt', JSON.parse(carto_raw), function (err) {if (err) return console.log(err);});
 	__.each(carto_raw.visualizations,function(V){
 
 		Ds.push(U.gen_carto(V))
 
 	})
 
+return CB(null)
 }
-
-
-console.log("Ds:")
+    }, // end first waterfall
+    function(CB) {
+        //If we just pass in the task callback, it will automatically be called with an error, if the db.save() call fails
+        // db.save('xxx', 'b', callback);
+        console.log('second func')
+        return CB(null)
+    }
+], function(err) {
+    if (err) {
+        //Handle the error in some way. Here we simply throw it
+        //Other options: pass it on to an outer callback, log it etc.
+        throw err;
+    }
+    console.log('Both a and b are done now');
+    console.log("Ds:")
 console.log(Ds);
+});
+
+
+
 
 

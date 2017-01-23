@@ -1,9 +1,13 @@
 {
 	"MODE": "apt",
-	"SOLRROOT": "http://localhost:8989/solr/#/biblio/",
+	"SOLRHOST": "localhost",
+	"SOLRPATH":"solr",
+	"SOLRCORE":"biblio",
+	"SOLRPORT":"8080",
 	"CARTO_USER": "cecmcgee",
 	"VFROOT": "http://localhost/ogsdc",
 	"VFINSTITUTION":"Some Lucky Joint",
 	"VFCOLLECTION":"Our Cuckoo Nutty Spatial Data Collection",
-	"VECTORS":["ST_MultiPolygon","ST_MultiLineString"]
+	"VECTORS":["ST_MultiPolygon","ST_MultiLineString"],
+	"EXCLUDES":["eolapp_poly","eolapp_point","eolapp_line"]
 }

@@ -1,11 +1,12 @@
 var __ = require("underscore");
 var TURF = require("turf");
 var GJH = require("geojsonhint");
-var request = require('request');
+var REQUEST = require('request');
+var ASYNC = require('async')
+var CARTODB = require('cartodb');
 
 var Translations = require('./Translations.json')
 var Config = require('./Config.json')
-var CARTODB = require('cartodb');
  
 
 var method = Util.prototype;
@@ -22,61 +23,79 @@ method.getAge = function() {
 	return this._age;
 };
 
+method.gen_carto_urls = function(V,type){
+
+	switch(type) {
+		case "render":
+		return "https://"+Config.CARTO_USER+".carto.com/tables/"+V.name
+			break;
+		case "slug":
+	// same: will they ever differ? #returnto
+		return "https://"+Config.CARTO_USER+".carto.com/tables/"+V.name
+			break;
+		default:
+		return null
+	}
+
+}
+
 method.gen_carto = function(v){
 
 	var d={}
 
 	/* ------------------- id */
 	d._id=(typeof v.id!=='undefined')?v.id:null;
-
 	/* ------------------- statics */
 	d.geo_source="carto"
 	d.geo_render_type="carto"
-	d.geo_render_url="https://"+Config.CARTO_USER+".carto.com/tables/"+v.name
-	// same: will they ever differ? #returnto
-	d.ogslug="https://"+Config.CARTO_USER+".carto.com/tables/"+v.name
+
+	d.table = v.name;
 	d.institution=(typeof Config.VFINSTITUTION!=='undefined')?[Config.VFINSTITUTION]:null;
 	d.collection=(typeof Config.VFCOLLECTION!=='undefined')?[Config.VFCOLLECTION]:null;
-	d.geo_source="carto";
 
+	if(d.geo_source=="carto"){
+	d.geo_render_url=this.gen_carto_urls(v,"render");
+	d.ogslug=this.gen_carto_urls(v,"slug");
+	}
 
 /* ------------------- title and other possibly-translated fields */
+	
+	d.title = (typeof v.display_name !== 'undefined' && v.display_name!== null)?v.display_name:v.description;
+	d.description = (typeof v.description !== 'undefined' && v.description!== null)?v.description:null;
+
 	// is there a Translation entry for this record -- currently keyed on title (which is unique [?] in carto)
 	var T = __.findWhere(Translations,{titleog:v.name});
 
-	d.title = (typeof v.display_name !== 'undefined' && v.display_tname!== null)?v.display_name:v.description;
-
-
 // if Translation override
 if(T){
-	if(typeof T.display_title !== 'undefined')
+	if(typeof T.display_name !== 'undefined')
 	{
-		d.title = T.display_title;	
+		d.title = T.display_name;	
 	} 
 	d.description = (typeof T.description !== 'undefined')?T.description:v.description;
 }
 /* ------------------- durl and other straight-up incomings */
 d.url=(typeof v.id!=='undefined')?Config.VFROOT+"/id:"+v.id:null;
 
-d.formats=null;
+d.format=null;
 if(typeof v.table!=='undefined' && typeof v.table.geometry_types!=='undefined')
-	{d.formats=v.table.geometry_types}
+	{d.format=v.table.geometry_types}
 else if(typeof v.external_source !== 'undefined' && v.external_source.geometry_types!=='undefined'){
-	d.formats=v.external_source.geometry_types
+	d.format=v.external_source.geometry_types
 }
 
-if(d.formats !== null){
-	d.format_classes=this.format_classify(d.formats);
+if(d.format !== null){
+	d.format_classes=this.format_classify(d.format);
 }
 
 
 /* ------------------- authors and publishers */
 
-d.authors=[];
+d.author=[];
 if(typeof v.attributions!=='undefined'){
-	d.authors=v.attributions;
+	d.author=v.attributions;
 } else if(typeof v.source !== 'undefined' && v.source.length>0){
-	d.authors = v.source;
+	d.author = v.source;
 }
 
 d.publisher=[];
@@ -86,33 +105,7 @@ if(typeof v.source!=='undefined'){
 	d.publisher = v.attributions;
 }
 
-	/* ------------------- envelope/bbox/etc. 
-*/
-// https://{username}.carto.com/api/v2/sql?q=SELECT count(*) FROM {table_name}
-
-var u = "https://"+Config.CARTO_USER+".carto.com/api/v2/sql?q=SELECT st_extent(the_geom) as bbox FROM "+v.name
-// console.log(u)
-request(u, function (error, response, body) {
-    if (!error && response.statusCode == 200) {
-      // from within the callback, write data to response, essentially returning it.
-      // res.send(body);
-     
-var bbx = JSON.parse(body)
-     console.log("100 count:");
-console.log(bbx.rows);
-    }
-  })
-
-// var BB = this.pull_envelope(d.geo_render_url);
-// d.bbox_west = BB.west
-// d.bbox_south = BB.south
-// d.bbox_east = BB.east
-// d.bbox_north = BB.west
-
-
-
 return d
-
 }
 
 method.format_classify = function(fs){
@@ -121,9 +114,6 @@ method.format_classify = function(fs){
 
 	var classes = []
 	__.each(fs,function(f,i){
-
-		// var F = null;
-
 		
 		var F = (__.contains(Config.VECTORS,f))?"vector":null;
 
@@ -212,10 +202,8 @@ method.is_this_prose = function(g){
 			var tgc=null
 			if(typeof tg !== 'undefined'){
 				tgc = tg.url
-				// if(typeof tg.url !== 'undefined'){tgc="sry undefined at 89"}else{tgc=tg.url;}
 			}
 
-				// var tgr = (typeof tg !== 'undefined') ? tg.url : null;
 				return tgc
 			} else {
 					//tf wz null and shall remain so
@@ -368,8 +356,6 @@ method.get_bbox_datagovOG = function(t,w){
 		} else if(typeof bwl !== 'undefined' && typeof bsl !== 'undefined' && typeof bel !== 'undefined' && typeof bnl !== 'undefined')
 		{
 
-		//	var bb = [bwl.value,bsl.value,bel.value,bnl.value];
-		//	return method.bbox2geojson(bb)
 		switch(w){
 			case "n":
 			return bn1.value;
@@ -387,34 +373,12 @@ method.get_bbox_datagovOG = function(t,w){
 			return null
 		}
 
-} //if bbox-<dir>-<ll> 
+} //if bbox
 else
 {
 
 	return "no spatial key or bbox-<dir>-<ll> in meta"
 }
-
-
-// __.each(E,function(e){
-// 	if(e.key=="spatial"){
-// 		// console.log(e.value)
-
-// 	}
-// });
-
-// return "hi"
-// check spatial extra key for a geojson geom
-// if(E.spatial !== 'undefined'){
-// console.log("E.spatial")
-// console.log(E.spatial)}
-// return 0
-// failing that check spatial extra key for a wkt geom
-
-// failing that check spatial extra key for a classic bbox array (w/ some lat/lng verif)
-
-// failing that check individual keys for separated corner coords
-
-// 
 
 
 }

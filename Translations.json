@@ -1,7 +1,8 @@
 [
 	{
 		"titleog": "spatialtrack_line",
-		"display_name": "Spatial Track: Line Features"
+		"display_name": "Spatial Track: Line Features",
+		"description":"I could put some custom shiz in here."
 	},
 	{
 		"titleog": "spatialtrack_point",
